@@ -1,0 +1,176 @@
+models:
+
+    Etim\Group:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+        relationships:
+          hasMany: ProductClass, Translation
+             
+    Etim\Feature:
+        id: char:8 primary foreign:Translation.id
+        type: enum:A,L,N,R,C,M
+        description: string:80 index
+        deprecated: boolean default:false
+        relationships:
+          hasMany: ClassFeature, ModellingClassFeature, Translation
+    
+    Etim\Value:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+        relationships:
+          hasMany: FeatureValue, Translation
+
+    Etim\Unit:
+        id: char:8 primary
+        description: varchar(80) unique
+        abbreviation: varchar(25)unique
+        deprecated: boolean
+        relationships:
+          hasMany: UnitTranslation, ClassFeature, ModellingClassFeature
+
+    Etim\ProductClass:
+        id: id
+        class_id: char:8 index
+        status: enum:2,3,5,9
+        version: tinyInteger unsigned
+        mutation_date: date nullable
+        revision: tinyInteger nullable unsigned
+        revision_date: date nullable
+        group_id: char:8 foreign:Group.id
+        description: string:80 index
+        releases: json
+        changecode: string:80
+        relationships:
+          hasMany: ClassFeature, Translation, Synonym,
+          belongsTo: Group
+
+    Etim\ModellingGroup:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+        relationships:
+          hasMany: ModellingClass, Translation
+
+    Etim\ModellingClass:
+        id: id
+        modelling_class_id: char:8 index
+        version: tinyInteger unsigned
+        status: enum:2,3,5,9
+        mutation_date: date nullable
+        revision: tinyInteger nullable unsigned
+        revision_date: date nullable
+        modelling: boolean
+        description: string:80 index
+        group_id: char:8 foreign:ModellingGroup.id
+        drawing_uri: string:255 nullable
+        changecode: string:80 nullable  
+        relationships:               
+          hasMany: ModellingClassFeature, Translation, Synonym,
+          belongsTo: ModellingGroup
+
+    Etim\ClassFeature:
+        id: id
+        class_id: char:8 index foreign:ProductClass.id
+        sort_nr: smallInteger unsigned
+        feature_id: char:8 foreign:Feature.id
+        unit_id: char:8 nullable foreign:Unit.id
+        imp_unit_id: char:8 nullable foreign:Unit.id
+        changecode: enum:"Unchanged","Changed","New","Deleted"
+        releases: json nullable
+        relationships:
+          hasMany: ClassFeature, ModellingClassFeature, Translation
+
+
+    Etim\FeatureValue:
+        id: id
+        class_id: char:8 index
+        sort_nr: tinyInteger unsigned
+        feature_id: char:8 index foreign:ModellingClassFeature.feature_id
+        value_id: char:8 index foreign:Value.id
+        changecode: string:80 nullable
+        releases: json nullable
+        relationships:
+          belongsTo: ClassFeature, ModellingClassFeature
+
+    Etim\ModellingClassPort:
+        id: id
+        modelling_class_id: char:8 index foreign:ModellingClass.id
+        port_code: tinyInteger unsigned
+        connection_type_id: char:8 index foreign:ModellingClass.id
+        relationships:
+          hasMany: FeatureValue
+          belongsTo: ModellingClass
+
+    Etim\ModellingClassFeature:
+        id: char:8 primary
+        modellingclass_id: char:8 foreign:ModellingClass.id
+        sort_nr: smallInteger unsigned
+        feature_id: char:8 foreign:Feature.id
+        port_code: tinyInteger unsigned
+        drawing_code: char:8
+        unit_id: char:8 nullable
+        imp_unit_id: char:8 nullable
+        relationships:
+          belongsTo: Feature, ModellingClass, Unit
+
+    Etim\Synonym:
+        id: char:8 primary foreign:ProductClass.id
+        language_id: char:5 primary foreign:Language.id
+        description: string:8
+        relationships:
+          belongsTo: ProductClass, Language, ModellingClass
+
+    Etim\Language:
+        id: char:5 primary
+        description: varchar:80 index
+        relationships:
+          hasMany: Synonym, Translation, UnitTranslation
+
+    Etim\Translation:
+        id: char:8 primary
+        language_id: char:5 foreign:Language.id
+        description: string:80
+        relationships:
+          belongsTo: ProductClass, Feature, Group, Language, ModellingClass, Value
+
+    Etim\UnitTranslation:
+        id: char:8 primary foreign:ProductClass.id
+        language_id: char:5 foreign:Language.id
+        description: string:80
+        abbreviation: string:25
+        relationships:
+          belongsTo: Language, Unit
+
+controllers:
+    Etim\Group:
+      resource
+    Etim\Feature:
+      resource
+    Etim\Value:
+      resource
+    Etim\Unit:
+      resource
+    Etim\ProductClass:
+      resource
+    Etim\ModellingGroup:
+      resource
+    Etim\ModellingClass:
+      resource
+    Etim\Language:
+      resource
+    Etim\Translation:
+      resource
+    Etim\UnitTranslation:
+      resource
+    Etim\ClassFeature:
+      resource
+    Etim\FeatureValue:
+      resource
+    Etim\ModellingClassPort:
+      resource
+    Etim\ModellingClassFeature:
+      resource
+    Etim\Synonym:
+      resource

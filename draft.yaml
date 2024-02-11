@@ -1,0 +1,141 @@
+models:
+
+    Etim\EtimGroup:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+            
+    Etim\Feature:
+        id: char:8 primary foreign:Translation.id
+        type: enum
+        description: string:80 index
+        deprecated: boolean default:false
+    
+    Etim\Value:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+        indexes:
+            - index: id
+
+    Etim\Unit:
+        id: char:8 primary
+        description: varchar(80) unique
+        abbreviation: varchar(25)unique
+        deprecated: boolean
+
+    Etim\Class:
+        id: char:8 primary
+        status: tinyInteger unsigned
+        version: tinyInteger
+        mutation_date: date nullable
+        revision: tinyInteger nullable
+        revision_date: date nullable
+        group_id: char:8 foreign:EtimGroup.id
+        description: string:80 index
+        releases: json
+        changecode: string:80
+
+    Etim\ModellingGroup:
+        id: char:8 primary
+        description: string:80 index
+        deprecated: boolean
+
+    Etim\ModellingClass:
+        id: char:8 primary
+        version: tinyInteger
+        statusenum: tinyInteger unsigned
+        mutation_date: date nullable
+        revision: tinyInteger nullable
+        revision_date: date nullable
+        modelling: boolean
+        description: string:80 index
+        group_id: char:8 foreign:ModellingGroup.id
+        drawing_uri: string:255 nullable
+        changecode: string:80 nullable                 
+
+    Etim\ClassFeature:
+        id: char:8 primary
+        class_id: char:8 foreign:Class.id
+        sort_nr: smallInteger unsigned
+        feature_id: char:8 foreign:Feature.id
+        unit_id: char:8 nullable foreign:Unit.id
+        imp_unit_id: char:8 nullable foreign:Unit.id
+        changecode: string:80 nullable
+        releases: json nullable
+
+    Etim\FeatureValue:
+        id: id
+        class_id: char:8 index
+        sort_nr: tinyInteger unsigned
+        feature_id: char:8 index foreign:ModellingClassFeature.feature_id
+        value_id: char:8 index foreign:Value.id
+        changecode: string:80 nullable
+        releases: json nullable
+
+
+    Etim\ModellingClassConnection:
+        id: id
+        modelling_class_id: char:8 index foreign:ModellingClass.id
+        port_code: tinyInteger unsigned
+        connection_type_id: char:8 index foreign:ModellingClass.id
+
+    Etim\ModellingClassFeature:
+        id: char:8 primary
+        modellingclass_id: char:8 foreign:ModellingClass.id
+        sort_nr: smallInteger unsigned
+        feature_id: char:8 foreign:Feature.id
+        port_code: tinyInteger unsigned
+        drawing_code: char:8
+        unit_id: char:8 nullable
+        imp_unit_id: char:8 nullable
+
+    Etim\Synonym:
+        id: char:8 primary foreign:Class.id
+        language_id: char:5 primary foreign:Language.id
+        description: string:8
+
+    Etim\Datatype:
+        id: id
+        datatype: char:2 unique foreign:Feature.type
+
+    Etim\Language:
+        id: char:5 primary
+        description: bigInteger unique
+
+    Etim\Translation:
+        id: char:8 primary foreign:Class.id
+        language_id: char:5 foreign:Language.id
+        translation: string:80
+
+controllers:
+    Etim\EtimGroup:
+      resource
+    Etim\Feature:
+      resource
+    Etim\Value:
+      resource
+    Etim\Unit:
+      resource
+    Etim\Class:
+      resource
+    Etim\ModellingGroup:
+      resource
+    Etim\ModellingClass:
+      resource
+    Etim\Language:
+      resource
+    Etim\Datatype:
+      resource
+    Etim\Translation: 
+      resource
+    Etim\ClassFeature:
+      resource
+    Etim\FeatureValue:
+      resource
+    Etim\ModellingClassConnection:
+      resource
+    Etim\ModellingClassFeature:
+      resource
+    Etim\Synonym:
+      resource
