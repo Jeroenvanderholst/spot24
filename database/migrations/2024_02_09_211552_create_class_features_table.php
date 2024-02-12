@@ -21,9 +21,9 @@ return new class extends Migration
             $table->char('feature_id', 8);
             $table->foreign('feature_id')->references('id')->on('features');
             $table->char('unit_id', 8)->nullable();
-            $table->foreign('unit_id')->references('id')->on('units');
+            $table->foreign('unit_id')->references('unit_id')->on('units');
             $table->char('imp_unit_id', 8)->nullable();
-            $table->foreign('imp_unit_id')->references('id')->on('units');
+            $table->foreign('imp_unit_id')->references('unit_id')->on('units');
             $table->enum('changecode', ['Unchanged','Changed','New','Deleted'])->nullable();
             $table->json('releases')->nullable();
             $table->timestamps();

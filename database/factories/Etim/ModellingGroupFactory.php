@@ -21,8 +21,9 @@ class ModellingGroupFactory extends Factory
     public function definition(): array
     {
         return [
-            'description' => $this->faker->text(),
-            'deprecated' => $this->faker->boolean(),
+            'id' => fake()->unique()->regexify('MG[0-9]{6}'),
+            'description' => $this->faker->text(50),
+            'deprecated' => $this->faker->boolean($changeOfGettingTrue=5),
         ];
     }
 }

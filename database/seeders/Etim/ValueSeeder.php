@@ -12,6 +12,6 @@ class ValueSeeder extends Seeder
      */
     public function run(): void
     {
-        Value::factory()->count(5)->create();
+        Value::factory()->count(1800)->create();
     }
 }

@@ -28,12 +28,12 @@ class UnitTranslation extends Model
      * @var array
      */
     protected $casts = [
-        'unit_id' => 'integer',
+        
     ];
 
     public function language(): BelongsTo
     {
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(EtimLanguage::class);
     }
 
     public function unit(): BelongsTo

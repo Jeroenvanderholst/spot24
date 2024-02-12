@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('trade_items', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->string('supplier_item_number', 35)->index();
             $table->char('supplier_item_gtin', 14)->unique()->nullable();
             $table->string('manufacturer_product_nr', 35)->index();

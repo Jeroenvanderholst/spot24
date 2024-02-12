@@ -49,11 +49,6 @@ class FeatureValue extends Model
         return $this->belongsTo(ModellingClassFeature::class);
     }
 
-    public function modellingclassfeature(): BelongsTo
-    {
-        return $this->belongsTo(ModellingClassFeature::class, 'feature_id', 'feature_id');
-    }
-
     public function value(): BelongsTo
     {
         return $this->belongsTo(Value::class);

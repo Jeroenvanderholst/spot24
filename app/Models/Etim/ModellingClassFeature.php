@@ -52,9 +52,4 @@ class ModellingClassFeature extends Model
     {
         return $this->belongsTo(Unit::class);
     }
-
-    public function modellingclass(): BelongsTo
-    {
-        return $this->belongsTo(ModellingClass::class);
-    }
 }

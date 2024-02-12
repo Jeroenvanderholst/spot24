@@ -16,13 +16,9 @@ class Translation extends Model
      * @var array
      */
     protected $fillable = [
+        'entity_id',
         'language_id',
         'description',
-        'product_class_id',
-        'feature_id',
-        'group_id',
-        'modelling_class_id',
-        'value_id',
     ];
 
     /**
@@ -31,11 +27,7 @@ class Translation extends Model
      * @var array
      */
     protected $casts = [
-        'product_class_id' => 'integer',
-        'feature_id' => 'integer',
-        'group_id' => 'integer',
-        'modelling_class_id' => 'integer',
-        'value_id' => 'integer',
+
     ];
 
     public function productClass(): BelongsTo
@@ -55,7 +47,7 @@ class Translation extends Model
 
     public function language(): BelongsTo
     {
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(EtimLanguage::class);
     }
 
     public function modellingClass(): BelongsTo

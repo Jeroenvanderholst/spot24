@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use App\Models\Etim\ClassFeature;
 use App\Models\Etim\Feature;
 use App\Models\Etim\FeatureValue;
+use App\Models\Etim\ModellingClass;
 use App\Models\Etim\ModellingClassFeature;
 use App\Models\Etim\ProductClass;
 use App\Models\Etim\Value;
@@ -25,15 +26,16 @@ class FeatureValueFactory extends Factory
      */
     public function definition(): array
     {
+        $entities = ModellingClass::pluck('modelling_class_id');
+        $entities = ProductClass::pluck('class_code');
+
         return [
-            'class_id' => ProductClass::factory()->create()->class_id,
-            'sort_nr' => $this->faker->randomDigitNotNull(),
-            'feature_id' => Feature::factory(),
-            'value_id' => Value::factory(),
+            'entity_id' => $entities->random(),
+            'sort_nr' => $this->faker->randomNumber(2, false),
+            'feature_id' => Feature::where('type', '=', 'A')->get()->pluck('id')->random(),
+            'value_id' => Value::pluck('id')->random(),
             'changecode' => $this->faker->randomElement(["Unchanged","Changed","New","Deleted"]),
             'releases' => $this->faker->randomElement(['{["ETIM-7.0", "ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-9.0" ]}']),
-            'class_feature_id' => ClassFeature::factory(),
-            'modelling_class_feature_id' => ModellingClassFeature::factory(),
         ];
     }
 }

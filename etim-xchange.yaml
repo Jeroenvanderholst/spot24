@@ -595,7 +595,7 @@ models:
 
     EtimXchange\ClassificationFeature:
         id: id
-        product_id: bigInteger unsigned index foreign:OtherClassification_product_id
+        product_id: bigInteger unsigned index foreign:OtherClassification.product_id
         manufacturer_product_number: string:35
         classification_feature_name: string:100 nullable
         classification_feature_value1: string:100 nullable

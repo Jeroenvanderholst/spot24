@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('classification_features', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
-            $table->foreign('product_id')->references('id')->on('OtherClassification_product_ids');
+            $table->foreign('product_id')->references('product_id')->on('other_classifications');
             $table->string('manufacturer_product_number', 35);
             $table->string('classification_feature_name', 100)->nullable();
             $table->string('classification_feature_value1', 100)->nullable();

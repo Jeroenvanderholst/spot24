@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->string('manufacturer_product_number', 35)->index();
             $table->enum('product_status', ["PRE-LAUNCH","ACTIVE","ON_HOLD","PLANNED_WITHDRAWAL","OBSOLETE"])->default('ACTIVE');
             $table->enum('product_type', ["PHYSICAL","CONTRACT","LICENCE","SERVICE"])->nullable();

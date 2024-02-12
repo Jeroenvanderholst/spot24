@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('units', function (Blueprint $table) {
-            $table->char('id', 8)->primary();
+            $table->id();
+            $table->char('unit_id', 8)->index();
             $table->string('description')->unique();
             $table->string('abbreviation');
             $table->boolean('deprecated');

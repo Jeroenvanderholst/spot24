@@ -21,10 +21,11 @@ class ModellingClassPortFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
-            'modelling_class_id' => ModellingClass::factory(),
-            'port_code' => $this->faker->randomDigitNotNull(),
-            'connection_type_id' => ModellingClass::factory(),
+            'modelling_class_id' => ModellingClass::where('modelling_class_id', 'LIKE', 'MC%')->pluck('modelling_class_id')->random(),
+            'port_code' => $this->faker->randomDigit(),
+            'connection_type_id' => ModellingClass::where('modelling_class_id', 'LIKE', 'CT%')->pluck('modelling_class_id')->random(),
         ];
     }
 }

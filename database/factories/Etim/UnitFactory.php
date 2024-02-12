@@ -21,7 +21,7 @@ class UnitFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->regexify('EU[0-9]{6}'),
+            'unit_id' => fake()->unique()->regexify('EU[0-9]{6}'),
             'description' => $this->faker->text(80),
             'abbreviation' => $this->faker->word(),
             'deprecated' => $this->faker->boolean(),

@@ -12,6 +12,14 @@ class ModellingGroupSeeder extends Seeder
      */
     public function run(): void
     {
-        ModellingGroup::factory()->count(5)->create();
+        ModellingGroup::factory()->count(50)->create();
+        ModellingGroup::create(
+            [
+                'id' => 'MG000001',
+                'description' => 'Connection Types',
+                'deprecated' => false,
+
+            ]
+        );
     }
 }

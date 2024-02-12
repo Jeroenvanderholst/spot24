@@ -4,7 +4,7 @@ namespace Database\Factories\Etim;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use App\Models\Etim\Language;
+use App\Models\Etim\EtimLanguage;
 use App\Models\Etim\Unit;
 use App\Models\Etim\UnitTranslation;
 
@@ -23,10 +23,11 @@ class UnitTranslationFactory extends Factory
     public function definition(): array
     {
         return [
-            'language_id' => Language::factory(),
-            'description' => $this->faker->text(),
-            'abbreviation' => $this->faker->regexify('[A-Za-z0-9]{25}'),
-            'unit_id' => Unit::factory(),
+            'unit_id' => Unit::pluck('unit_id')->random(),
+            'language_id' => EtimLanguage::pluck('id')->random(),
+            'description' => $this->faker->text(80),
+            'abbreviation' => $this->faker->text(25),
+            
         ];
     }
 }

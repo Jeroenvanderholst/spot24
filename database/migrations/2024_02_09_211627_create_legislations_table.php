@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('legislations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->string('manufacturer_product_number', 35)->index();
             $table->boolean('electric_component_contained')->nullable();
             $table->boolean('battery_contained')->nullable();

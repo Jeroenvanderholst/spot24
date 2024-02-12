@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('values', function (Blueprint $table) {
-            $table->char('id', 8)->primary();
+            $table->char('id', 8)->primary()->foreign('Translation.id');
             $table->string('description', 80)->index();
             $table->boolean('deprecated');
             $table->timestamps();

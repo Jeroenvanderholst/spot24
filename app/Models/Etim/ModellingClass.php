@@ -28,7 +28,6 @@ class ModellingClass extends Model
         'group_id',
         'drawing_uri',
         'changecode',
-        'modelling_group_id',
     ];
 
     /**
@@ -61,9 +60,9 @@ class ModellingClass extends Model
         return $this->hasMany(Synonym::class);
     }
 
-    public function (): HasMany
+    public function modellingClassPort(): HasMany
     {
-        return $this->hasMany(::class);
+        return $this->hasMany(ModellingClassPort::class);
     }
 
     public function modellingGroup(): BelongsTo

@@ -21,7 +21,7 @@ class GroupFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => $this->faker->regexify('EG[0-9]{6}'),
+            'id' => $this->faker->unique()->regexify('EG[0-9]{6}'),
             'description' => $this->faker->text(80),
             'deprecated' => $this->faker->boolean($chanceOfGettingTrue = 5),
         ];

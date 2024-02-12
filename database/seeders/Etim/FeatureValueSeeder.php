@@ -12,6 +12,6 @@ class FeatureValueSeeder extends Seeder
      */
     public function run(): void
     {
-        FeatureValue::factory()->count(5)->create();
+        FeatureValue::factory()->count(2000)->create();
     }
 }

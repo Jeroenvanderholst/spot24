@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::disableForeignKeyConstraints();
 
         Schema::create('synonyms', function (Blueprint $table) {
-            $table->char('id', 8)->primary()->foreign('ProductClass.id');
+            $table->id();
+            $table->char('entity_id', 8)->index();
             $table->char('language_id', 5)->index();
-            $table->foreign('language_id')->references('id')->on('language');
-            $table->string('description', 8);
-            $table->foreignId('product_class_id');
-            $table->foreignId('modelling_class_id');
+            $table->foreign('language_id')->references('id')->on('etim_languages');
+            $table->string('description', 80);
             $table->timestamps();
         });
 

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Etim\Feature;
 use App\Models\Etim\Group;
-use App\Models\Etim\Language;
+use App\Models\Etim\EtimLanguage;
 use App\Models\Etim\ModellingClass;
 use App\Models\Etim\ProductClass;
 use App\Models\Etim\Translation;
@@ -26,14 +26,16 @@ class TranslationFactory extends Factory
      */
     public function definition(): array
     {
+        $entities = ProductClass::pluck('class_code');
+        $entities = ModellingClass::pluck('modelling_class_id');
+        $entities = Feature::pluck('id');
+        $entities = Group::pluck('id');
+        $entities = Value::pluck('id');
+        
         return [
-            'language_id' => Language::factory(),
-            'description' => $this->faker->text(),
-            'product_class_id' => ProductClass::factory(),
-            'feature_id' => Feature::factory(),
-            'group_id' => Group::factory(),
-            'modelling_class_id' => ModellingClass::factory(),
-            'value_id' => Value::factory(),
+            'entity_id' => $entities->random(),
+            'language_id' => EtimLanguage::pluck('id')->random(),
+            'description' => $this->faker->text(80),
         ];
     }
 }

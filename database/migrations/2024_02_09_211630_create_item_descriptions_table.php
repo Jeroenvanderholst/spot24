@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('item_descriptions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('trade_item_id')->index();
-            $table->foreign('trade_item_id')->references('id')->on('trade_item');
+            $table->foreign('trade_item_id')->references('id')->on('trade_items');
             $table->string('supplier_item_number', 35)->index();
             $table->char('description_language', 5)->nullable();
             $table->string('minimal_item_description', 80);

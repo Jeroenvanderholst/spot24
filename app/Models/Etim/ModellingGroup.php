@@ -20,6 +20,9 @@ class ModellingGroup extends Model
         'deprecated',
     ];
 
+    public $incrementing = false;
+    public $keyType = 'string';
+
     /**
      * The attributes that should be cast to native types.
      *

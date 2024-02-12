@@ -21,7 +21,7 @@ class ValueFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->regexify('EV[0-9]{6}'),
+            'id' => fake()->unique()->regexify('EV[0-9]{6}'),
             'description' => $this->faker->text(80),
             'deprecated' => $this->faker->boolean($chanceOfGettingTrue=5),
 

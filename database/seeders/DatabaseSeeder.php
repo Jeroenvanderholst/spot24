@@ -70,14 +70,15 @@ class DatabaseSeeder extends Seeder
             ValueSeeder::class,
             UnitSeeder::class,
             ClassFeatureSeeder::class,
-            FeatureValueSeeder::class,
             ModellingGroupSeeder::class,
             ModellingClassSeeder::class,
             ModellingClassPortSeeder::class,
             ModellingClassFeatureSeeder::class,
+            FeatureValueSeeder::class,
             SynonymSeeder::class,
             TranslationSeeder::class,
             UnitTranslationSeeder::class,
+            /*
             CatalogueSeeder::class,
             SupplierSeeder::class,
             SupplierAttachmentSeeder::class,
@@ -111,6 +112,7 @@ class DatabaseSeeder extends Seeder
             PackagingIdentificationSeeder::class,
             PackagingDetailSeeder::class,
             EnclosedTradeItemSeeder::class,
+            */
 
         ]);
     }

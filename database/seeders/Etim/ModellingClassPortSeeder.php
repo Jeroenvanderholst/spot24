@@ -12,6 +12,6 @@ class ModellingClassPortSeeder extends Seeder
      */
     public function run(): void
     {
-        ModellingClassPort::factory()->count(5)->create();
+        ModellingClassPort::factory()->count(2000)->create();
     }
 }

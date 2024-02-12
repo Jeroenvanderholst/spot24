@@ -27,8 +27,8 @@ class ClassFeatureFactory extends Factory
             'class_code' => ProductClass::pluck('class_code')->random(),
             'sort_nr' => $this->faker->randomNumber(2, false),
             'feature_id' => Feature::pluck('id')->random(),
-            'unit_id' => Unit::pluck('id')->random(),
-            'imp_unit_id' => Unit::pluck('id')->random(),
+            'unit_id' => Unit::pluck('unit_id')->random(),
+            'imp_unit_id' => Unit::pluck('unit_id')->random(),
             'changecode' => $this->faker->randomElement(["Unchanged","Changed","New","Deleted"]),
             'releases' => $this->faker->randomElement(['{["ETIM-7.0", "ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-9.0" ]}']),
         ];

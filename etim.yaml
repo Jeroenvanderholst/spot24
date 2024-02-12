@@ -67,7 +67,7 @@ models:
         drawing_uri: string:255 nullable
         changecode: string:80 nullable  
         relationships:               
-          hasMany: ModellingClassFeature, Translation, Synonym,
+          hasMany: ModellingClassFeature, ModellingClassPort, Translation, Synonym
           belongsTo: ModellingGroup
 
     Etim\ClassFeature:
@@ -85,14 +85,14 @@ models:
 
     Etim\FeatureValue:
         id: id
-        class_id: char:8 index
+        entity_id: char:8 index
         sort_nr: tinyInteger unsigned
-        feature_id: char:8 index foreign:ModellingClassFeature.feature_id
+        feature_id: char:8 index foreign:Feature.feature_id
         value_id: char:8 index foreign:Value.id
         changecode: string:80 nullable
         releases: json nullable
         relationships:
-          belongsTo: ClassFeature, ModellingClassFeature
+          belongsTo: ClassFeature, ModellingClassFeature, Feature
 
     Etim\ModellingClassPort:
         id: id
@@ -104,7 +104,7 @@ models:
           belongsTo: ModellingClass
 
     Etim\ModellingClassFeature:
-        id: char:8 primary
+        id: id
         modellingclass_id: char:8 foreign:ModellingClass.id
         sort_nr: smallInteger unsigned
         feature_id: char:8 foreign:Feature.id
@@ -116,9 +116,10 @@ models:
           belongsTo: Feature, ModellingClass, Unit
 
     Etim\Synonym:
-        id: char:8 primary foreign:ProductClass.id
+        id: id
+        entity_id: char:8 primary
         language_id: char:5 primary foreign:Language.id
-        description: string:8
+        description: string:80
         relationships:
           belongsTo: ProductClass, Language, ModellingClass
 
@@ -129,14 +130,16 @@ models:
           hasMany: Synonym, Translation, UnitTranslation
 
     Etim\Translation:
-        id: char:8 primary
-        language_id: char:5 foreign:Language.id
+        id: id
+        entity_id: char:8 index
+        language_id: char:5 index foreign:Language.id
         description: string:80
         relationships:
           belongsTo: ProductClass, Feature, Group, Language, ModellingClass, Value
 
     Etim\UnitTranslation:
-        id: char:8 primary foreign:ProductClass.id
+        id: id
+        id: char:8 index foreign:Unit.id
         language_id: char:5 foreign:Language.id
         description: string:80
         abbreviation: string:25

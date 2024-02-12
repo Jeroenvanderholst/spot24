@@ -12,6 +12,6 @@ class ClassFeatureSeeder extends Seeder
      */
     public function run(): void
     {
-        ClassFeature::factory()->count(5)->create();
+        ClassFeature::factory()->count(15000)->create();
     }
 }

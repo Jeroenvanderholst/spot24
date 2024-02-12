@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('product_classes', function (Blueprint $table) {
             $table->id();
-            $table->char('class_code', 8)->index();
+            $table->char('class_code', 8)->index()->foreign('Synonym.entity_id');
             $table->enum('status', ["2","3","5","9"]);
             $table->unsignedTinyInteger('version');
             $table->date('mutation_date')->nullable();

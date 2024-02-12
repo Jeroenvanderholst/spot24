@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('etim_modelling_features', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('etim_modelling_port_id')->index();
-            $table->foreign('etim_modelling_port_id')->references('id')->on('etim_modelling_port');
+            $table->foreign('etim_modelling_port_id')->references('id')->on('etim_modelling_ports');
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('product_id')->on('etim_modelling_port');
             $table->string('etim_modelling_class_code')->index();

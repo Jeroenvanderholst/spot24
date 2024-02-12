@@ -54,7 +54,7 @@ Route::resource('modelling-group', App\Http\Controllers\Etim\ModellingGroupContr
 
 Route::resource('modelling-class', App\Http\Controllers\Etim\ModellingClassController::class);
 
-Route::resource('language', App\Http\Controllers\Etim\LanguageController::class);
+Route::resource('language', App\Http\Controllers\Etim\EtimLanguageController::class);
 
 Route::resource('translation', App\Http\Controllers\Etim\TranslationController::class);
 

@@ -10,6 +10,8 @@ class EtimLanguage extends Model
 {
     use HasFactory;
 
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +23,9 @@ class EtimLanguage extends Model
         'created_at',
         'updated_at'
     ];
+
+    public $incrementing = false;
+    public $keyType = 'string';
 
     public function synonyms(): HasMany
     {

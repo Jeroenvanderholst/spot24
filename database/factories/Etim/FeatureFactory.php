@@ -21,7 +21,7 @@ class FeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            'id' => fake()->regexify('EF[0-9]{6}'),
+            'id' => fake()->unique()->regexify('EF[0-9]{6}'),
             'type' => $this->faker->randomElement(["A","L","N","R","C","M"]),
             'description' => $this->faker->text(80),
             'deprecated' => $this->faker->boolean($chanceOfGettingTrue=5),
