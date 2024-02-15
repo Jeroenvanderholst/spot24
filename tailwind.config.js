@@ -12,6 +12,13 @@ export default {
 
     theme: {
         extend: {
+            
+            colors: { 
+                'etim-dark' : '#053043',
+                'etim-medium' : '#03597F',
+                'etim-light' : '#0082BA',
+            },
+
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
