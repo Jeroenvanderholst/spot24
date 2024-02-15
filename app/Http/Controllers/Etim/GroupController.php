@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers\Etim;
 
-use App\Etim\Group;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Etim\GroupStoreRequest;
 use App\Http\Requests\Etim\GroupUpdateRequest;
+use App\Models\Etim\Group;
+use Inertia\Inertia;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class GroupController extends Controller
 {
-    public function index(Request $request): Response
+    public function index(Request $request)
     {
         $groups = Group::all();
 
-        return view('group.index', compact('groups'));
+        return Inertia::render('group.index', compact('group'));
     }
 
     public function create(Request $request): Response

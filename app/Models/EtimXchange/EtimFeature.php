@@ -52,8 +52,8 @@ class EtimFeature extends Model
         return $this->belongsTo(EtimClassification::class);
     }
 
-    public function etimclassification(): BelongsTo
+    public function product(): BelongsTo
     {
-        return $this->belongsTo(EtimClassification::class, 'product_id', 'product_id');
+        return $this->belongsTo(Product::class, 'product_id');
     }
 }

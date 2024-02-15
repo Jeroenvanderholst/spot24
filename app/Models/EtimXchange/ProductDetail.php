@@ -39,11 +39,6 @@ class ProductDetail extends Model
         'warranty_business' => 'integer',
     ];
 
-    public function product(): HasOne
-    {
-        return $this->hasOne(Product::class);
-    }
-
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class);

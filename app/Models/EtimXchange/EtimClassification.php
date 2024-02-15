@@ -2,6 +2,8 @@
 
 namespace App\Models\EtimXchange;
 
+use App\Models\Etim\ModellingClass;
+use App\Models\Etim\ProductClass;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -59,23 +61,13 @@ class EtimClassification extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function etim\ProductClass(): BelongsTo
+    public function productclass(): BelongsTo
     {
-        return $this->belongsTo(\App\Models\Etim\ProductClass::class);
-    }
-
-    public function etim\ModellingClass(): BelongsTo
-    {
-        return $this->belongsTo(\App\Models\Etim\ModellingClass::class);
-    }
-
-    public function etim\productclass(): BelongsTo
-    {
-        return $this->belongsTo(\App\Models\Etim\ProductClass::class, 'etim_class_code', 'class_id');
+        return $this->belongsTo(ProductClass::class, 'etim_class_code', 'class_id');
     }
 
     public function modellingclass(): BelongsTo
     {
-        return $this->belongsTo(\Etim\ModellingClass::class, 'etim_modelling_class_code', 'modelling_class_id');
+        return $this->belongsTo(ModellingClass::class, 'etim_modelling_class_code', 'modelling_class_id');
     }
 }

@@ -48,8 +48,4 @@ class ItemAttachment extends Model
         return $this->belongsTo(TradeItem::class);
     }
 
-    public function tradeitem(): BelongsTo
-    {
-        return $this->belongsTo(TradeItem::class, 'supplier_item_number', 'supplier_item_number');
-    }
 }

@@ -41,10 +41,6 @@ class LcaEnvironmental extends Model
         'lca_reference_lifetime' => 'integer',
     ];
 
-    public function product(): HasOne
-    {
-        return $this->hasOne(Product::class);
-    }
 
     public function lcaDeclarations(): HasMany
     {

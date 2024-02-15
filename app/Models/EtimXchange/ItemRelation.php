@@ -41,13 +41,4 @@ class ItemRelation extends Model
         return $this->belongsTo(TradeItem::class);
     }
 
-    public function tradeitem(): BelongsTo
-    {
-        return $this->belongsTo(TradeItem::class, 'related_supplier_item_number', 'supplier_item_number');
-    }
-
-    public function tradeitem(): BelongsTo
-    {
-        return $this->belongsTo(TradeItem::class, 'related_supplier_item_gtin', 'supplier_item_gtin');
-    }
 }

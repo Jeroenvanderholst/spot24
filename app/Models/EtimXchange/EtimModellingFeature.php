@@ -51,14 +51,10 @@ class EtimModellingFeature extends Model
         'etim_value_coordinate_z' => 'decimal:4',
     ];
 
-    public function etimModellingPort(): BelongsTo
-    {
-        return $this->belongsTo(EtimModellingPort::class);
-    }
 
     public function etimmodellingport(): BelongsTo
     {
-        return $this->belongsTo(EtimModellingPort::class, 'product_id', 'product_id');
+        return $this->belongsTo(EtimModellingPort::class, 'product_id');
     }
 
     public function etimValueMatrices(): HasMany

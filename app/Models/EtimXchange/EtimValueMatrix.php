@@ -40,13 +40,4 @@ class EtimValueMatrix extends Model
         return $this->belongsTo(EtimModellingFeature::class);
     }
 
-    public function etimmodellingfeature(): BelongsTo
-    {
-        return $this->belongsTo(EtimModellingFeature::class, 'etim_modelling_class_code', 'etim_modelling_class_code');
-    }
-
-    public function etimmodellingfeature(): BelongsTo
-    {
-        return $this->belongsTo(EtimModellingFeature::class, 'etim_feature_code', 'etim_feature_code');
-    }
 }

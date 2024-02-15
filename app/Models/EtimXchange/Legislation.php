@@ -87,10 +87,6 @@ class Legislation extends Model
         'hazard_trigger' => 'array',
     ];
 
-    public function product(): HasOne
-    {
-        return $this->hasOne(Product::class);
-    }
 
     public function product(): BelongsTo
     {

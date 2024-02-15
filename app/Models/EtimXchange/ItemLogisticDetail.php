@@ -46,11 +46,6 @@ class ItemLogisticDetail extends Model
         'base_item_net_volume' => 'decimal:4',
     ];
 
-    public function tradeItem(): HasOne
-    {
-        return $this->hasOne(TradeItem::class);
-    }
-
     public function tradeItem(): BelongsTo
     {
         return $this->belongsTo(TradeItem::class);
