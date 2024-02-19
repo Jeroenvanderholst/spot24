@@ -34,7 +34,6 @@ class ModellingClassFeature extends Model
     protected $casts = [
         'sort_nr' => 'integer',
         'port_code' => 'integer',
-        'unit_id' => 'integer',
         'modelling_class_id' => 'integer',
     ];
 

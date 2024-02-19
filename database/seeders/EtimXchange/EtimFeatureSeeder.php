@@ -12,6 +12,6 @@ class EtimFeatureSeeder extends Seeder
      */
     public function run(): void
     {
-        EtimFeature::factory()->count(1700)->create();
+        EtimFeature::factory()->count(10)->create();
     }
 }

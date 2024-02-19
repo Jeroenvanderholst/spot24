@@ -30,7 +30,11 @@ class ProductClassFactory extends Factory
             'revision_date' => $this->faker->date(),
             'group_id' => Group::pluck('id')->random(),
             'description' => fake()->text(80),
-            'releases' => $this->faker->randomElement(['{["ETIM-7.0", "ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-9.0" ]}']),
+            'releases' => $this->faker->randomElement([
+                '[{"ETIM-7.0" : true},{"ETIM-8.0": true}, {"ETIM-9.0":true}]', 
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": true}, {"ETIM-9.0":true}]',
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": false}, {"ETIM-9.0":true}]'
+            ]),
             'changecode' => $this->faker->randomElement(["Unchanged","Changed","New","Deleted"]),
         ];
     }

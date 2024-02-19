@@ -30,7 +30,11 @@ class ClassFeatureFactory extends Factory
             'unit_id' => Unit::pluck('unit_id')->random(),
             'imp_unit_id' => Unit::pluck('unit_id')->random(),
             'changecode' => $this->faker->randomElement(["Unchanged","Changed","New","Deleted"]),
-            'releases' => $this->faker->randomElement(['{["ETIM-7.0", "ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-9.0" ]}']),
+            'releases' => $this->faker->randomElement([
+                '[{"ETIM-7.0" : true},{"ETIM-8.0": true}, {"ETIM-9.0":true}]', 
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": true}, {"ETIM-9.0":true}]',
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": false}, {"ETIM-9.0":true}]'
+            ]),
         ];
     }
 }

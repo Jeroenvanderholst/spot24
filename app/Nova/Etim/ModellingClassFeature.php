@@ -3,8 +3,12 @@
 namespace App\Nova\Etim;
 
 use App\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ModellingClassFeature extends Resource
@@ -30,6 +34,9 @@ class ModellingClassFeature extends Resource
      */
     public static $search = [
         'id',
+        'feature_id',
+        'unit_id',
+        'imp_unit_id',
     ];
 
     /**
@@ -42,6 +49,15 @@ class ModellingClassFeature extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('class_code')->readonly(),
+            Number::make('Sort nr')->readonly(),
+            Text::make('Feature ID')->readonly(),
+            Text::make('Unit ID', 'unit_id')->readonly()->sortable(),
+            Text::make('Imp unit ID', 'imp_unit_id')->readonly(),
+            Text::make('Changecode')->readonly(),
+            KeyValue::make('Releases')->readonly(),
+
+           // HasMany::make('featurevalue.value_id'),
         ];
     }
 

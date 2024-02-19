@@ -37,6 +37,7 @@ class FeatureValue extends Model
         'releases' => 'array',
         'class_feature_id' => 'integer',
         'modelling_class_feature_id' => 'integer',
+        'releases' => 'json',
     ];
 
     public function classFeature(): BelongsTo

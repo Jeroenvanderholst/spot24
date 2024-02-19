@@ -12,6 +12,6 @@ class SynonymSeeder extends Seeder
      */
     public function run(): void
     {
-        Synonym::factory()->count(8000)->create();
+        Synonym::factory()->count(15000)->create();
     }
 }

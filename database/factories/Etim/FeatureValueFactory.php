@@ -35,7 +35,11 @@ class FeatureValueFactory extends Factory
             'feature_id' => Feature::where('type', '=', 'A')->get()->pluck('id')->random(),
             'value_id' => Value::pluck('id')->random(),
             'changecode' => $this->faker->randomElement(["Unchanged","Changed","New","Deleted"]),
-            'releases' => $this->faker->randomElement(['{["ETIM-7.0", "ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-8.0", "ETIM-9.0" ]}', '{["ETIM-9.0" ]}']),
+            'releases' => $this->faker->randomElement([
+                '[{"ETIM-7.0" : true},{"ETIM-8.0": true}, {"ETIM-9.0":true}]', 
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": true}, {"ETIM-9.0":true}]',
+                '[{"ETIM-7.0" : false},{"ETIM-8.0": false}, {"ETIM-9.0":true}]'
+            ]),
         ];
     }
 }

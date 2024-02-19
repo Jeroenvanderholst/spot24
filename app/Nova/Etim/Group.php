@@ -48,7 +48,8 @@ class Group extends Resource
             ID::make()->sortable(),
 
             Text::make('Description')
-            ->sortable(),
+            ->sortable()
+            ->readonly(),
 
             Boolean::make('Deprecated')
             ->filterable()

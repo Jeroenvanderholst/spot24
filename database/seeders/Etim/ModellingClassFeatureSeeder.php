@@ -12,6 +12,6 @@ class ModellingClassFeatureSeeder extends Seeder
      */
     public function run(): void
     {
-        ModellingClassFeature::factory()->count(7000)->create();
+        ModellingClassFeature::factory()->count(5000)->create();
     }
 }

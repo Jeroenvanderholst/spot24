@@ -3,8 +3,13 @@
 namespace App\Nova\Etim;
 
 use App\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Code;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\KeyValue;
+use Laravel\Nova\Fields\MultiSelect;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class FeatureValue extends Resource
@@ -30,6 +35,9 @@ class FeatureValue extends Resource
      */
     public static $search = [
         'id',
+        'entity_id',
+        'feature_id',
+        'value_id',
     ];
 
     /**
@@ -40,8 +48,18 @@ class FeatureValue extends Resource
      */
     public function fields(NovaRequest $request)
     {
+       
         return [
             ID::make()->sortable(),
+            Text::make('Class code', 'entity_id')->readonly()->sortable(),
+            Number::make('Sort number', 'sort_nr')->readonly(),
+            Text::make('Feature ID', 'feature_id')->readonly()->sortable(),
+            Text::make('Value ID', 'value_id')->readonly()->sortable(),
+            Text::make('changecode')->readonly()->hideFromIndex()->filterable(),
+            KeyValue::make('releases')->rules('json')->hideFromIndex(),
+
+            
+
         ];
     }
 

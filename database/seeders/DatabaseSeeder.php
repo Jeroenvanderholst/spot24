@@ -5,7 +5,6 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Database\Seeders\Etim\ClassFeatureSeeder;
-use Database\Seeders\Etim\EtimFeatureSeeder;
 use Database\Seeders\Etim\FeatureSeeder;
 use Database\Seeders\Etim\FeatureValueSeeder;
 use Database\Seeders\Etim\GroupSeeder;
@@ -21,6 +20,7 @@ use Database\Seeders\Etim\UnitSeeder;
 use Database\Seeders\Etim\UnitTranslationSeeder;
 use Database\Seeders\Etim\ValueSeeder;
 use Database\Seeders\EtimXchange\AllowanceSurchargeSeeder;
+use Database\Seeders\EtimXchange\EtimFeatureSeeder;
 use Database\Seeders\EtimXchange\CatalogueSeeder;
 use Database\Seeders\EtimXchange\CatalogueSupplierSeeder;
 use Database\Seeders\EtimXchange\ClassificationFeatureSeeder;

@@ -12,6 +12,6 @@ class UnitTranslationSeeder extends Seeder
      */
     public function run(): void
     {
-        UnitTranslation::factory()->count(800)->create();
+        UnitTranslation::factory()->count(400)->create();
     }
 }

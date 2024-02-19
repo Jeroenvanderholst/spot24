@@ -3,8 +3,15 @@
 namespace App\Nova\Etim;
 
 use App\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\URL;
+use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Number;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ModellingClass extends Resource
@@ -30,6 +37,9 @@ class ModellingClass extends Resource
      */
     public static $search = [
         'id',
+        'modelling_class_id',
+        'description',
+        'group_id',
     ];
 
     /**
@@ -42,6 +52,70 @@ class ModellingClass extends Resource
     {
         return [
             ID::make()->sortable(),
+
+            Text::make('Modelling Class' ,'modelling_class_id')
+                ->sortable()
+                ->readonly(),
+
+            Text::make('Description')
+                ->readonly()
+                ->filterable(),
+
+            Number::make('Version')
+                ->readonly(),
+            
+            Boolean::make('Modelling')
+                ->readonly()
+                ->filterable()
+                ->hideFromIndex(),
+            
+            Number::make('Status')
+                ->filterable()
+                ->readonly()
+                ->hideFromIndex(),
+
+            Date::make('Mutation Date', 'mutation_date')
+                ->filterable()
+                ->sortable()
+                ->readonly()
+                ->hideFromIndex(),
+
+            Number::make('Revision')
+                ->hideFromIndex()
+                ->readonly(),
+
+            Date::make('Revision date', 'revision_date')
+                ->readonly()
+                ->hideFromIndex(),
+
+            Text::make('Group ID', 'group_id')
+                ->readonly()
+                ->sortable(),
+
+            URL::make('Drawing', 'drawing_uri')
+                ->readonly()
+                ->displayUsing(fn () => "Reference drawing"),
+
+            Text::make('Changecode')
+                ->readonly()
+                ->filterable()
+                ->hideFromIndex(),
+            
+            HasMany::make('Synonyms'),
+
+            MorphMany::make('Descriptions', 'translations', Translation::class),
+
+
+            
+                
+
+
+
+
+            
+        
+            
+
         ];
     }
 

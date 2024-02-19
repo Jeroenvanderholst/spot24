@@ -3,8 +3,12 @@
 namespace App\Nova\Etim;
 
 use App\Nova\Resource;
-use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Boolean;
+use Illuminate\Validation\Rules\Enum;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Feature extends Resource
@@ -30,6 +34,7 @@ class Feature extends Resource
      */
     public static $search = [
         'id',
+        'description',
     ];
 
     /**
@@ -42,6 +47,12 @@ class Feature extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Description')->sortable()->readonly(),
+            Text::make('Type')->filterable()->readonly(),
+            Boolean::make('Deprecated')->filterable()->readonly()->hideFromIndex(),
+            
+            
+            
         ];
     }
 

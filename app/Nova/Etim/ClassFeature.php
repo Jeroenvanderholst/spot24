@@ -8,14 +8,15 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class EtimLanguage extends Resource
+
+class ClassFeature extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Etim\EtimLanguage>
+     * @var class-string<\App\Models\ClassFeature>
      */
-    public static $model = \App\Models\Etim\EtimLanguage::class;
+    public static $model = \App\Models\Etim\ClassFeature::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -31,7 +32,10 @@ class EtimLanguage extends Resource
      */
     public static $search = [
         'id',
-        'description',
+        'class_code',
+        'feature_id',
+        'unit_id',
+        'imp_unit_id',
     ];
 
     /**
@@ -44,10 +48,12 @@ class EtimLanguage extends Resource
     {
         return [
             ID::make()->sortable(),
-
-            Text::make('Description')
-            ->sortable(),
-
+            Text::make('Class ID', 'class_code')->readonly()->sortable(),
+            Text::make('Feature ID')->readonly()->sortable(),
+            Text::make('Unit ID')->readonly()->sortable(),
+            Text::make('Imp Unit ID')->readonly()->sortable(),
+            Text::make('Change code')->readonly()->hideFromIndex(),
+            Text::make('Releases')->readonly()->hideFromIndex(),
         ];
     }
 
