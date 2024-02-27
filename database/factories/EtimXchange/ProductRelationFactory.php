@@ -24,7 +24,7 @@ class ProductRelationFactory extends Factory
         return [
             'product_id' => Product::factory(),
             'related_manufacturer_product_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'related_manufacturer_product_gtin' => $this->faker->randomLetter(),
+            'related_product_gtin' => $this->faker->randomElements([$this->faker->randomNumber('8', true), $this->faker->randomNumber('8', true), $this->faker->randomNumber('8', true), null]),
             'relation_type' => $this->faker->randomElement(["ACCESSORY","MAIN_PRODUCT","CONSISTS_OF","CROSS-SELLING","MANDATORY","SELECT","SIMILAR","SPAREPART","UPSELLING","SUCCESSOR","PREDECESSOR","OTHER"]),
             'related_product_quantity' => $this->faker->randomNumber(),
         ];

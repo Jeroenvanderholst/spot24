@@ -31,8 +31,8 @@ return new class extends Migration
             $table->char('datapool_gln', 13)->nullable();
             $table->date('catalogue_validity_start');
             $table->date('catalogue_validity_end')->nullable();
-            $table->char('country', 2)->nullable();
-            $table->char('language', 5);
+            $table->json('country')->nullable(); 
+            $table->json('language');
             $table->char('currency_code', 3)->nullable();
             $table->timestamps();
         });

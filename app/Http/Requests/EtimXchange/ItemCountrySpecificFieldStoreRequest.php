@@ -29,10 +29,10 @@ class ItemCountrySpecificFieldStoreRequest extends FormRequest
             'cs_item_characteristic_value_range_lower' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'cs_item_characteristic_value_range_upper' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'cs_item_characteristic_value_string' => ['nullable', 'json'],
-            'cs_item_characteristic_value_set' => ['nullable', 'string', 'max:255'],
+            'cs_item_characteristic_value_set' => ['nullable', 'json'],
             'cs_item_characteristic_value_select' => ['nullable', 'string', 'max:60'],
             'cs_item_characteristic_value_unit_code' => ['nullable', 'string', 'max:3'],
-            'cs_item_characteristic_reference_gtin' => ['nullable', 'string', 'max:14'],
+            'cs_item_characteristic_reference_gtin' => ['nullable', 'json'],
         ];
     }
 }

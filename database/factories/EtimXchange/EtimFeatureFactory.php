@@ -31,7 +31,7 @@ class EtimFeatureFactory extends Factory
             'etim_value_range_lower' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_upper' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_logical' => $this->faker->boolean(),
-            'etim_value_details' => '{}',
+            'etim_value_details' => '[{"Language": "en-GB","EtimValueDetails": "Extra details about ETIM value"}]',
             'reason_no_value' => $this->faker->randomElement(["MV","NA","UN"]),
             'etim_classification_id' => EtimClassification::factory(),
         ];

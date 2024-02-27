@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('id')->on('products');
             $table->string('related_manufacturer_product_number', 35)->index();
-            $table->char('related_manufacturer_product_gtin', 14)->nullable();
+            $table->json('related_product_gtin')->nullable();
             $table->enum('relation_type', ["ACCESSORY","MAIN_PRODUCT","CONSISTS_OF","CROSS-SELLING","MANDATORY","SELECT","SIMILAR","SPAREPART","UPSELLING","SUCCESSOR","PREDECESSOR","OTHER"]);
             $table->unsignedMediumInteger('related_product_quantity')->default(1);
             $table->timestamps();

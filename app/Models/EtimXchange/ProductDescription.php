@@ -37,6 +37,7 @@ class ProductDescription extends Model
     protected $casts = [
         'id' => 'integer',
         'product_id' => 'integer',
+        'product_keyword' => 'array',
     ];
 
     public function product(): BelongsTo

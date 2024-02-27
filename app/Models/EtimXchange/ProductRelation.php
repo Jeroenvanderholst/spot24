@@ -18,7 +18,7 @@ class ProductRelation extends Model
     protected $fillable = [
         'product_id',
         'related_manufacturer_product_number',
-        'related_manufacturer_product_gtin',
+        'related_product_gtin',
         'relation_type',
         'related_product_quantity',
     ];
@@ -31,6 +31,7 @@ class ProductRelation extends Model
     protected $casts = [
         'id' => 'integer',
         'product_id' => 'integer',
+        'related_product_gtin' => 'array',
         'related_product_quantity' => 'integer',
     ];
 

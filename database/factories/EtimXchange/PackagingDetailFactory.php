@@ -25,7 +25,7 @@ class PackagingDetailFactory extends Factory
             'packaging_id' => PackagingIdentification::factory(),
             'supplier_packaging_part_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
             'manufacturer_packaging_part_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'manufacturer_packaging_part_gtin' => $this->faker->randomLetter(),
+            'packaging_part_gtin' => $this->faker->randomElements(["01234567", "0123456789012", "12345678"], null),
             'packaging_type_length' => $this->faker->randomNumber(),
             'packaging_type_width' => $this->faker->randomNumber(),
             'packaging_type_height' => $this->faker->randomNumber(),

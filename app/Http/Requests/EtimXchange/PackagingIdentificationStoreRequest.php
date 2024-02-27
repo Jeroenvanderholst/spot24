@@ -23,7 +23,7 @@ class PackagingIdentificationStoreRequest extends FormRequest
             'trade_item_id' => ['required', 'integer'],
             'supplier_packaging_number' => ['nullable', 'string', 'max:35'],
             'manufacturer_packaging_number' => ['nullable', 'string', 'max:35'],
-            'manufacturer_packaging_gtin_3' => ['nullable', 'string', 'max:14'],
+            'packaging_gtin' => ['nullable', 'json'],
             'packaging_type_code' => ['required', 'in:BE,BG,BJ,BO,BR,BX,C62,CA,CL,CQ,CR,CS,CT,CY,D99,DR,EV,KG,NE,PA,PF,PK,PL,PR,PU,RG,RL,RO,SA,SET,TN,TU,WR,Z2,Z3'],
             'packaging_quantity' => ['nullable', 'numeric', 'gt:0', 'between:0,999999999999.9999'],
             'trade_item_primary_packaging' => ['nullable'],

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('packaging_id')->references('id')->on('packaging_identification');
             $table->string('supplier_packaging_part_number', 35)->nullable();
             $table->string('manufacturer_packaging_part_number', 35)->nullable();
-            $table->char('manufacturer_packaging_part_gtin', 14)->nullable();
+            $table->json('packaging_part_gtin')->nullable();
             $table->unsignedDecimal('packaging_type_length', 16, 4)->nullable();
             $table->unsignedDecimal('packaging_type_width', 16, 4)->nullable();
             $table->unsignedDecimal('packaging_type_height', 16, 4)->nullable();

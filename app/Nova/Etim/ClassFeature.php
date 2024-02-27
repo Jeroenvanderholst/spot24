@@ -5,6 +5,7 @@ namespace App\Nova\Etim;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -49,9 +50,10 @@ class ClassFeature extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Class ID', 'class_code')->readonly()->sortable(),
-            Text::make('Feature ID')->readonly()->sortable(),
-            Text::make('Unit ID')->readonly()->sortable(),
-            Text::make('Imp Unit ID')->readonly()->sortable(),
+            Number::make('Sort nr')->readonly()->sortable(),
+            Text::make('Feature ID')->readonly(),
+            Text::make('Unit ID')->readonly(),
+            Text::make('Imp Unit ID')->readonly(),
             Text::make('Change code')->readonly()->hideFromIndex(),
             Text::make('Releases')->readonly()->hideFromIndex(),
         ];

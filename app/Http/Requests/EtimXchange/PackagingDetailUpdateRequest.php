@@ -23,7 +23,7 @@ class PackagingDetailUpdateRequest extends FormRequest
             'packaging_id' => ['required', 'integer'],
             'supplier_packaging_part_number' => ['nullable', 'string', 'max:35'],
             'manufacturer_packaging_part_number' => ['nullable', 'string', 'max:35'],
-            'manufacturer_packaging_part_gtin' => ['nullable', 'string', 'max:14'],
+            'manufacturer_packaging_part_gtin' => ['nullable', 'json'],
             'packaging_type_length' => ['nullable', 'numeric', 'gt:0', 'between:0,999999999999.9999'],
             'packaging_type_width' => ['nullable', 'numeric', 'gt:0', 'between:0,999999999999.9999'],
             'packaging_type_height' => ['nullable', 'numeric', 'gt:0', 'between:0,999999999999.9999'],

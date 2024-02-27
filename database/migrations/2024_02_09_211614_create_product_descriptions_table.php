@@ -20,12 +20,12 @@ return new class extends Migration
             $table->string('manufacturer_product_number', 35)->index();
             $table->char('description_language', 5)->index()->nullable();
             $table->string('minimal_product_description', 80);
-            $table->string('unique_main_product_description', 256)->nullable();
+            $table->string('unique_main_product_description', 255)->nullable();
             $table->text('full_product_description')->nullable();
             $table->text('product_marketing_text')->nullable();
             $table->text('product_specification_text')->nullable();
             $table->text('product_application_instructions')->nullable();
-            $table->string('product_keyword', 50)->nullable();
+            $table->json('product_keyword')->nullable();
             $table->string('product_page_uri', 255)->nullable();
             $table->timestamps();
         });

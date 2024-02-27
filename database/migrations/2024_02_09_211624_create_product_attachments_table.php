@@ -23,7 +23,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('attachment_order')->nullable();
             $table->json('attachment_language')->nullable();
             $table->json('attachment_type_specification')->nullable();
-            $table->string('attachment_filename', 100)->index();
+            $table->string('attachment_filename', 100)->index()->nullable();
             $table->string('attachment_uri', 255);
             $table->json('attachment_description')->nullable();
             $table->date('attachment_issue_date')->nullable();

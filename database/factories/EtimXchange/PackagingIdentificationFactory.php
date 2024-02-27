@@ -25,7 +25,7 @@ class PackagingIdentificationFactory extends Factory
             'trade_item_id' => TradeItem::factory(),
             'supplier_packaging_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
             'manufacturer_packaging_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'manufacturer_packaging_gtin_3' => $this->faker->randomLetter(),
+            'packaging_gtin' => $this->faker->randomElements(["01234567", "0123456789012", "12345678"], null),
             'packaging_type_code' => $this->faker->randomElement(["BE","BG","BJ","BO","BR","BX","C62","CA","CL","CQ","CR","CS","CT","CY","D99","DR","EV","KG","NE","PA","PF","PK","PL","PR","PU","RG","RL","RO","SA","SET","TN","TU","WR","Z2","Z3"]),
             'packaging_quantity' => $this->faker->randomNumber(),
             'trade_item_primary_packaging' => $this->faker->boolean(),

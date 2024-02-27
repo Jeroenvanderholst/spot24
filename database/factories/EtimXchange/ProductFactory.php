@@ -23,23 +23,21 @@ class ProductFactory extends Factory
     {
         return [
             'supplier_id' => Supplier::factory(),
+            'manufacturer_id_gln' => $this->faker->randomNumber('13',true),
+            'manufacturer_id_duns' => $this->faker->randomNumber('9',true),
             'manufacturer_name' => $this->faker->regexify('[A-Za-z0-9]{80}'),
             'manufacturer_shortname' => $this->faker->regexify('[A-Za-z0-9]{15}'),
             'manufacturer_product_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'manufacturer_product_gtin' => $this->faker->randomLetter(),
+            'product_gtin' => '["01234567", "0123456789012", "12345678"]',
             'unbranded_product' => $this->faker->boolean(),
             'brand_name' => $this->faker->regexify('[A-Za-z0-9]{50}'),
-            'brand_series' => '{}',
-            'brand_series_variation' => $this->faker->regexify('[A-Za-z0-9]{50}'),
+            'brand_series' => '[{"Language": "en-GB","BrandSeries": "Things"}, {"Language": "nl-NL","BrandSeries": "Dingen"}]',
+            'brand_series_variation' => '[{"Language": "en-GB","BrandSeriesVariation": "Smaller things"}, {"Language": "nl-NL","BrandSeriesVariation": "Kleinere dingen"}]',
             'product_validity_date' => $this->faker->date(),
             'product_obsolescence_date' => $this->faker->date(),
-            'discount_group_id' => $this->faker->regexify('[A-Za-z0-9]{20}'),
-            'discount_group_description' => $this->faker->regexify('[A-Za-z0-9]{100}'),
-            'bonus_group_id' => $this->faker->regexify('[A-Za-z0-9]{20}'),
-            'bonus_group_description' => '{}',
             'customs_commodity_code' => $this->faker->regexify('[A-Za-z0-9]{10}'),
             'factor_customs_commodity_codedecimal(15,4)' => $this->faker->randomNumber(),
-            'country_of_origin' => $this->faker->randomLetter(),
+            'country_of_origin' => '["'.$this->faker->countryCode().'","'.$this->faker->countryCode().'"]',
         ];
     }
 }

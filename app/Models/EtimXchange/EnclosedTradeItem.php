@@ -18,9 +18,8 @@ class EnclosedTradeItem extends Model
     protected $fillable = [
         'packaging_id',
         'supplier_item_number',
-        'supplier_item_gtin',
         'manufacturer_item_number',
-        'manufacturer_item_gtin',
+        'item_gtin',
         'enclosed_item_quantity',
         'packaging_identification_id',
     ];
@@ -33,6 +32,7 @@ class EnclosedTradeItem extends Model
     protected $casts = [
         'id' => 'integer',
         'packaging_id' => 'integer',
+        'item_gtin' => 'array',
         'enclosed_item_quantity' => 'integer',
         'packaging_identification_id' => 'integer',
     ];

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('supplier_item_number', 35)->index();
             $table->char('description_language', 5)->nullable();
             $table->string('minimal_item_description', 80);
-            $table->string('unique_main_item_description', 256)->nullable();
+            $table->string('unique_main_item_description', 255)->nullable();
             $table->timestamps();
         });
 

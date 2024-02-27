@@ -20,7 +20,7 @@ class PackagingIdentification extends Model
         'trade_item_id',
         'supplier_packaging_number',
         'manufacturer_packaging_number',
-        'manufacturer_packaging_gtin_3',
+        'packaging_gtin',
         'packaging_type_code',
         'packaging_quantity',
         'trade_item_primary_packaging',
@@ -39,6 +39,7 @@ class PackagingIdentification extends Model
     protected $casts = [
         'id' => 'integer',
         'trade_item_id' => 'integer',
+        'packaging_gtin' => 'array',
         'packaging_quantity' => 'decimal:4',
         'trade_item_primary_packaging' => 'boolean',
         'packaging_recyclable' => 'boolean',

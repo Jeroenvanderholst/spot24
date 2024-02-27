@@ -22,9 +22,8 @@ class ItemRelationStoreRequest extends FormRequest
         return [
             'trade_item_id' => ['required', 'integer'],
             'related_supplier_item_number' => ['required', 'string', 'max:35'],
-            'related_supplier_item_gtin' => ['nullable', 'string', 'max:14'],
             'related_manufacturer_item_number' => ['nullable', 'string', 'max:35'],
-            'related_manufacturer_item_gtin' => ['nullable', 'string', 'max:14'],
+            'item_gtin' => ['nullable', 'json'],
             'relation_type' => ['required', 'in:ACCESSORY,MAIN_PRODUCT,CONSISTS_OF,CROSS-SELLING,MANDATORY,SELECT,SIMILAR,SPAREPART,UPSELLING,SUCCESSOR,PREDECESSOR,OTHER'],
             'related_item_quantity' => ['required', 'integer'],
         ];

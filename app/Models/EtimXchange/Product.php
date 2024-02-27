@@ -19,20 +19,18 @@ class Product extends Model
      */
     protected $fillable = [
         'supplier_id',
+        'manufacturer_id_gln',
+        'manufacturer_id_duns',
         'manufacturer_name',
         'manufacturer_shortname',
         'manufacturer_product_number',
-        'manufacturer_product_gtin',
+        'product_gtin',
         'unbranded_product',
         'brand_name',
         'brand_series',
         'brand_series_variation',
         'product_validity_date',
         'product_obsolescence_date',
-        'discount_group_id',
-        'discount_group_description',
-        'bonus_group_id',
-        'bonus_group_description',
         'customs_commodity_code',
         'factor_customs_commodity_codedecimal(15,4)',
         'country_of_origin',
@@ -46,12 +44,14 @@ class Product extends Model
     protected $casts = [
         'id' => 'integer',
         'supplier_id' => 'integer',
+        'product_gtin' => 'array',
         'unbranded_product' => 'boolean',
         'brand_series' => 'array',
+        'brand_series_variation' => 'array',
         'product_validity_date' => 'date',
         'product_obsolescence_date' => 'date',
-        'bonus_group_description' => 'array',
         'factor_customs_commodity_codedecimal(15,4)' => 'decimal:4',
+        'country_of_origin' => 'array',
     ];
 
     public function legislation(): HasOne

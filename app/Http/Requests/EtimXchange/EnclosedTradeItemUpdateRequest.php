@@ -24,7 +24,7 @@ class EnclosedTradeItemUpdateRequest extends FormRequest
             'supplier_item_number' => ['nullable', 'string', 'max:35'],
             'supplier_item_gtin' => ['nullable', 'string', 'max:14'],
             'manufacturer_item_number' => ['nullable', 'string', 'max:35'],
-            'manufacturer_item_gtin' => ['nullable', 'string', 'max:14'],
+            'item_gtin' => ['nullable', 'json'],
             'enclosed_item_quantity' => ['required', 'integer'],
             'packaging_identification_id' => ['required', 'integer', 'exists:packaging_identifications,id'],
         ];

@@ -26,7 +26,7 @@ class ItemDescriptionFactory extends Factory
             'supplier_item_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
             'description_language' => $this->faker->randomLetter(),
             'minimal_item_description' => $this->faker->regexify('[A-Za-z0-9]{80}'),
-            'unique_main_item_description' => $this->faker->regexify('[A-Za-z0-9]{256}'),
+            'unique_main_item_description' => $this->faker->regexify('[A-Za-z0-9]{255}'),
         ];
     }
 }

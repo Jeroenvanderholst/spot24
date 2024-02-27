@@ -42,9 +42,11 @@ class ItemCountrySpecificField extends Model
         'cs_item_characteristic_name' => 'array',
         'cs_item_characteristic_value_boolean' => 'boolean',
         'cs_item_characteristic_value_numeric' => 'decimal:4',
+        'cs_item_characteristic_value_string' => 'array',
+        'cs_item_characteristic_value_set' => 'array',
         'cs_item_characteristic_value_range_lower' => 'decimal:4',
         'cs_item_characteristic_value_range_upper' => 'decimal:4',
-        'cs_item_characteristic_value_string' => 'array',
+        'cs_item_characteristic_reference_gtin' => 'array',
     ];
 
     public function tradeItem(): BelongsTo

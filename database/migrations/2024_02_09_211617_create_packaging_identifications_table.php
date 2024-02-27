@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('trade_item_id')->references('id')->on('trade_item');
             $table->string('supplier_packaging_number', 35)->nullable();
             $table->string('manufacturer_packaging_number', 35)->nullable();
-            $table->char('manufacturer_packaging_gtin_3', 14)->nullable();
+            $table->json('packaging_gtin_3')->nullable();
             $table->enum('packaging_type_code', ["BE","BG","BJ","BO","BR","BX","C62","CA","CL","CQ","CR","CS","CT","CY","D99","DR","EV","KG","NE","PA","PF","PK","PL","PR","PU","RG","RL","RO","SA","SET","TN","TU","WR","Z2","Z3"]);
             $table->unsignedDecimal('packaging_quantity', 16, 4)->nullable();
             $table->boolean('trade_item_primary_packaging')->nullable();

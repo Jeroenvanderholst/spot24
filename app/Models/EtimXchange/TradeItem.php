@@ -20,12 +20,15 @@ class TradeItem extends Model
     protected $fillable = [
         'product_id',
         'supplier_item_number',
-        'supplier_item_gtin',
         'manufacturer_product_nr',
         'supplier_alt_item_number',
         'manufacturer_item_number',
-        'manufacturer_item_gtin',
+        'item_gtin',
         'buyer_item_number',
+        'discount_group_id',
+        'discount_group_description',
+        'bonus_group_id',
+        'bonus_group_description',
         'item_validity_date',
         'item_obslescence_date',
     ];
@@ -38,6 +41,9 @@ class TradeItem extends Model
     protected $casts = [
         'id' => 'integer',
         'product_id' => 'integer',
+        'item_gtin' => 'array',
+        'discount_group_description' => 'array',
+        'bonus_group_description' => 'array',
         'item_validity_date' => 'date',
         'item_obslescence_date' => 'date',
     ];

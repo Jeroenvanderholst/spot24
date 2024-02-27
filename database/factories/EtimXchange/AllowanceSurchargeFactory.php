@@ -29,7 +29,7 @@ class AllowanceSurchargeFactory extends Factory
             'allowance_surcharge_amount' => $this->faker->randomNumber(),
             'allowance_surcharge_sequence_number' => $this->faker->randomDigitNotNull(),
             'allowance_surcharge_percentage' => $this->faker->randomNumber(),
-            'allowance_surcharge_description' => '{}',
+            'allowance_surcharge_description' => '[{"Language" : "en-GB","AllowanceSurchargeDescription" : "Some surcharge for ..."} , {"Language" : "nl-NL" , "AllowanceSurchargeDescription" : "Toeslag voor …."}]',
             'allowance_surcharge_minimum_quantity' => $this->faker->randomNumber(),
             'price_id' => Price::factory(),
         ];

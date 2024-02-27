@@ -25,10 +25,10 @@ return new class extends Migration
             $table->decimal('cs_item_characteristic_value_range_lower', 16, 4)->nullable();
             $table->decimal('cs_item_characteristic_value_range_upper', 16, 4)->nullable();
             $table->json('cs_item_characteristic_value_string')->nullable();
-            $table->string('cs_item_characteristic_value_set', 255)->nullable();
+            $table->json('cs_item_characteristic_value_set')->nullable();
             $table->string('cs_item_characteristic_value_select', 60)->nullable();
             $table->string('cs_item_characteristic_value_unit_code', 3)->nullable();
-            $table->char('cs_item_characteristic_reference_gtin', 14)->nullable();
+            $table->json('cs_item_characteristic_reference_gtin')->nullable();
             $table->timestamps();
         });
 

@@ -49,13 +49,13 @@ class ModellingClassFeature extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('class_code')->readonly(),
-            Number::make('Sort nr')->readonly(),
+            Text::make('Class code', 'modellingclass_id')->readonly()->sortable(),
+            Number::make('Sort nr')->readonly()->sortable(),
             Text::make('Feature ID')->readonly(),
-            Text::make('Unit ID', 'unit_id')->readonly()->sortable(),
+            Text::make('Unit ID', 'unit_id')->readonly(),
             Text::make('Imp unit ID', 'imp_unit_id')->readonly(),
-            Text::make('Changecode')->readonly(),
-            KeyValue::make('Releases')->readonly(),
+            Text::make('Changecode')->readonly()->hideFromIndex(),
+            KeyValue::make('Releases')->readonly()->hideFromIndex(),
 
            // HasMany::make('featurevalue.value_id'),
         ];

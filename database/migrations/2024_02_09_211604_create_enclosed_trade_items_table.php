@@ -18,9 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('packaging_id')->index();
             $table->foreign('packaging_id')->references('id')->on('packaging_identification');
             $table->string('supplier_item_number', 35)->nullable();
-            $table->char('supplier_item_gtin', 14)->nullable();
             $table->string('manufacturer_item_number', 35)->nullable();
-            $table->char('manufacturer_item_gtin', 14)->nullable();
+            $table->char('item_gtin', 14)->nullable();
             $table->unsignedSmallInteger('enclosed_item_quantity')->default(1);
             $table->foreignId('packaging_identification_id');
             $table->timestamps();

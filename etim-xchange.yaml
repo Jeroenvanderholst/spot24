@@ -196,9 +196,8 @@ models:
         id: id
         packaging_id: bigInteger index unsigned foreign:PackagingIdentification.id
         supplier_item_number: string:35 nullable
-        supplier_item_gtin: char:14 nullable
         manufacturer_item_number: string:35 nullable
-        manufacturer_item_gtin: char:14 nullable
+        item_gtin: json nullable #["01234567", "0123456789012", "12345678"]
         enclosed_item_quantity: smallInteger unsigned default:1
         relationships:
             belongsTo: PackagingIdentification
@@ -208,10 +207,10 @@ models:
         supplier_id: bigInteger foreign:Supplier.id
         attachment_type: enum:ATX001,ATX002,ATX003,ATX004,ATX005,ATX006,ATX007,ATX008,ATX009,ATX010,ATX011,ATX012,ATX013,ATX014,ATX015,ATX016,ATX017,ATX018,ATX019,ATX020,ATX021,ATX099
         attachment_language: json nullable # multiple of char:5 # ["gb-EN", "nl-NL", "fr-FR"]
-        attachment_type_specification: json nullable # "AttachmentTypeSpecification" : [{"Language":"(string:5)", "AttachmentTypeSpecification":"(string:100)" }]
-        attachment_filename: string:100
+        attachment_type_specification: json nullable # [{"Language":"(string:5)", "AttachmentTypeSpecification":"(string:100)" }]
+        attachment_filename: string:100 nullable
         attachment_uri: string:255
-        attachment_description: json nullable # "AttachmentDescription" : [{"Language":"(string:5)", "AttachmentDescription":"(string:100)" }]
+        attachment_description: json nullable # [{"Language":"(string:5)", "AttachmentDescription":"(string:255)" }]
         attachment_issue_date: date nullable
         attachment_expiry_date: date nullable
         relationships:
@@ -255,8 +254,8 @@ models:
         cs_item_characteristic_value_numeric: decimal:16,4 nullable
         cs_item_characteristic_value_range_lower: decimal:16,4 nullable
         cs_item_characteristic_value_range_upper: decimal:16,4 nullable
-        cs_item_characteristic_value_string: json nullable # "CSItemCharacteristicValueString": [{"Language": "(char:5)", "CSItemCharacteristicValueString": "(string:4000)" }, {..}]
-        cs_item_characteristic_value_set: string:255 nullable # "CSItemCharacteristicValueSet": [{"Language": "(char:5)", "CSItemCharacteristicValueSet": "(string:255)" }, {..}]
+        cs_item_characteristic_value_string: json nullable # [{"Language": "nl-NL","CSItemCharacteristicValueString": "1"}]'
+        cs_item_characteristic_value_set: string:255 nullable # [{"language" : "nl_NL" , "CSItemCharacteristicValueSet" : [ "Tekst of value 1", "Tekst of value 2"]}, {"language" : "fr_FR" , "CSItemCharacteristicValueSet" : [ "Tekst of value 1", "Tekst of value 2"]}]
         cs_item_characteristic_value_select: string:60 nullable
         cs_item_characteristic_value_unit_code: string:3 nullable
         cs_item_characteristic_reference_gtin: char:14 nullable
@@ -268,7 +267,7 @@ models:
         packaging_id: bigInteger unsigned index foreign:PackagingIdentification.id
         supplier_packaging_part_number: string:35 nullable
         manufacturer_packaging_part_number: string:35 nullable
-        manufacturer_packaging_part_gtin: char:14 nullable
+        packaging_part_gtin: json nullable # ["01234567", "0123456789012", "12345678"]
         packaging_type_length: unsignedDecimal:16,4 nullable
         packaging_type_width: unsignedDecimal:16,4 nullable
         packaging_type_height: unsignedDecimal:16,4 nullable
@@ -286,7 +285,7 @@ models:
         product_id: bigInteger unsigned index foreign:Product.id
         product_number: string:35 index
         cs_product_characteristic_code: string:6
-        cs_product_characteristic_name: json nullable # "CSProductCharacteristicName": [{"Language": "(char:5)", "CSProductCharacteristicName": "(string:255)" }, {..}]
+        cs_product_characteristic_name: json nullable # [{"Language": "nl-NL","CSProductCharacteristicName": "DIN-number"}, {..}]
         cs_product_characteristic_value_boolean: boolean nullable
         cs_product_characteristic_value_numeric: decimal:16,4 nullable
         cs_product_characteristic_value_range_lower: decimal:16,4 nullable
@@ -295,7 +294,7 @@ models:
         cs_product_characteristic_value_set: json nullable # "CSProductCharacteristicValueSet": [{"Language": "(char:5)", "CSProductCharacteristicValueSet": "(string:255)" }, {..}]
         cs_product_characteristic_value_select: string:60 nullable
         cs_product_characteristic_value_unit_code: string:3 nullable
-        cs_product_characteristic_reference_gtin: char:14 nullable
+        cs_product_characteristic_reference_gtin: json nullable # "["01234567", "0123456789012", "12345678"]"
         relationships:
             belongsTo: Product
 
@@ -345,12 +344,12 @@ models:
         manufacturer_product_number: string:35 index
         description_language: char:5 index nullable
         minimal_product_description: string:80
-        unique_main_product_description: string:256 nullable
+        unique_main_product_description: string:255 nullable
         full_product_description: text nullable
         product_marketing_text: text nullable
         product_specification_text: text nullable
         product_application_instructions: text nullable
-        product_keyword: string:50 nullable
+        product_keyword: json nullable #["New","Offer","Best tested"]
         product_page_uri: string:255 nullable
         relationships:
             belongsTo: Product
@@ -358,7 +357,7 @@ models:
     EtimXchange\Catalogue:
         id: id
         catalogue_id: string:20 unique
-        catalogue_name: json nullable # "CatalogueName": [{ "Language" : "(string:5)", "CatalogueName" : "(string:100)"} ,{...}]
+        catalogue_name: json nullable # [{"Language" : "en-GB"", "CatalogueName" : "Fall/Winter 2023/2024"}, {"Language" : "fr-FR"", "CatalogueName" : "Automne/Hiver 2023/2024"},] 
         version: string:50 nullable
         contract_reference_number: string:20 nullable
         catalogue_type: enum:"FULL","CHANGE"
@@ -373,8 +372,8 @@ models:
         datapool_gln: char:13 nullable
         catalogue_validity_start: date
         catalogue_validity_end: date nullable
-        country: char:2 nullable
-        language: char:5
+        country: json nullable #["NL", "FR", "DE", "ES"]
+        language: json #["en-US", "fr-FR", "de-DE", "es-ES"]
         currency_code: char:3 nullable
         relationships: 
             hasMany: CatalogueSupplier
@@ -398,7 +397,7 @@ models:
         trade_item_id: bigInteger unsigned index foreign:TradeItem.id
         supplier_packaging_number: string:35 nullable
         manufacturer_packaging_number: string:35 nullable
-        manufacturer_packaging_gtin_3: char:14 nullable
+        packaging_gtin: json nullable #["01234567", "0123456789012", "12345678"]
         packaging_type_code: enum:"BE","BG","BJ","BO","BR","BX","C62","CA","CL","CQ","CR","CS","CT","CY","D99","DR","EV","KG","NE","PA","PF","PK","PL","PR","PU","RG","RL","RO","SA","SET","TN","TU","WR","Z2","Z3"
         packaging_quantity: unsignedDecimal:16,4 nullable
         trade_item_primary_packaging: boolean nullable
@@ -441,11 +440,11 @@ models:
         trade_item_id: bigInteger unsigned index foreign:TradeItem.id
         supplier_item_number: string:35 foreign:TradeItem.supplier_item_number
         attachment_type: enum:"ATX001","ATX002","ATX003","ATX004","ATX005","ATX006","ATX007","ATX008","ATX009","ATX010","ATX011","ATX012","ATX013","ATX014","ATX015","ATX016","ATX017","ATX018","ATX019","ATX020","ATX021","ATX099"
-        attachment_language: json nullable # multiple of char:5 # ["gb-EN", "nl-NL", "fr-FR"]
+        attachment_language: json nullable # ["en-US", "fr-FR", "de-DE", "es-ES"]
         attachment_type_specification: json nullable # "AttachmentTypeSpecification" : [{"Language":"(string:5)", "AttachmentTypeSpecification":"(string:100)" }]
-        attachment_filename: string:100
+        attachment_filename: string:100 nullable
         attachment_uri: string:255
-        attachment_description: json nullable # "AttachmentDescription" : [{"Language":"(string:5)", "AttachmentDescription":"(string:100)" }]
+        attachment_description: json nullable # "AttachmentDescription" : [{"Language":"(string:5)", "AttachmentDescription":"(string:255)" }, {...}]
         attachment_issue_date: date nullable
         attachment_expiry_date: date nullable
         relationships:
@@ -465,23 +464,21 @@ models:
     EtimXchange\Product:
         id: id
         supplier_id: bigInteger foreign:Supplier.id
+        manufacturer_id_gln: char:13 nullable
+        manufacturer_id_duns: char:9 nullable
         manufacturer_name: string:80
         manufacturer_shortname: string:15 nullable
         manufacturer_product_number: string:35 index
-        manufacturer_product_gtin: char:14 unique
+        product_gtin: json:14 unique #["01234567", "0123456789012", "12345678"]
         unbranded_product: boolean nullable
         brand_name: string:50 nullable
-        brand_series: json nullable # "BrandSeries" : {"Language": "(char:5)", "BrandSeries" : "(string:50)"}, {..}]  
-        brand_series_variation: json nullable string:50 # "BrandSeriesVariation" : {"Language": "(char:5)", "BrandSeriesVariation" : "(string:50)"}, {..}]  
+        brand_series: json nullable # [{"Language": "en-GB","BrandSeries": "Things"}, {"Language": "nl-NL","BrandSeries": "Dingen"}]
+        brand_series_variation: json nullable string:50 # [{"Language": "en-GB","BrandSeries": "Smaller things"}, {"Language": "nl-NL","BrandSeries": "Kleinere dingen"}] 
         product_validity_date: date nullable
         product_obsolescence_date: date nullable
-        discount_group_id: string:20 nullable
-        discount_group_description: string:100 nullable #"DiscountGroupDescription" : {"Language": "(char:5)", "DiscountGroupDescription" : "(string:100)"}, {..}]  
-        bonus_group_id: string:20 nullable
-        bonus_group_description: json nullable # "BonusGroupDescription" : {"Language": "(char:5)", "BonusGroupDescription" : "(string:100)"}, {..}]  
         customs_commodity_code: string:10 nullable
         factor_customs_commodity_codedecimal(15,4): unsignedDecimal:15,4 nullable
-        country_of_origin: char:2 nullable
+        country_of_origin: json nullable # ["NL", "FR", "DE", "ES"]
         relationships:
             hasOne: Legislation, LcaEnvironmental, ProductDetail
             hasMany: EtimClassification, OtherClassification, ProductAttachment, ProductCountrySpecificField, ProductDescription, ProductRelation, TradeItem, 
@@ -514,9 +511,9 @@ models:
         attachment_order: tinyInteger nullable unsigned
         attachment_language: json nullable # multiple of char:5 ["gb-EN", "nl-NL", "fr-FR"]
         attachment_type_specification:  json nullable # "AttachmentTypeSpecification" : [{"Language":"(char:5)", "AttachmentTypeSpecification":"(string:100)" }]
-        attachment_filename: string:100 index
+        attachment_filename: string:100 index nullable
         attachment_uri: string:255
-        attachment_description: json nullable # "AttachmentDescription" : [{"Language":"(char:5)", "AttachmentDescription":"(string:100)" }]
+        attachment_description: json nullable # "AttachmentDescription" : [{"Language":"(char:5)", "AttachmentDescription":"(string:250)" }]
         attachment_issue_date: date nullable
         attachment_expiry_date: date nullable
         relationships:
@@ -527,7 +524,7 @@ models:
         id: id
         product_id: bigInteger unsigned index foreign:Product.id
         related_manufacturer_product_number: string:35 index
-        related_manufacturer_product_gtin: char:14 nullable
+        related_product_gtin: char:14 nullable
         relation_type: enum:"ACCESSORY","MAIN_PRODUCT","CONSISTS_OF","CROSS-SELLING","MANDATORY","SELECT","SIMILAR","SPAREPART","UPSELLING","SUCCESSOR","PREDECESSOR","OTHER"
         related_product_quantity: mediumInteger unsigned default:1
         relationships:
@@ -537,12 +534,15 @@ models:
         id: id
         product_id: bigInteger unsigned index foreign:Product.id
         supplier_item_number: string:35 index
-        supplier_item_gtin: char:14 unique nullable
         manufacturer_product_nr: string:35 index
         supplier_alt_item_number: string:35 nullable
         manufacturer_item_number: string:35 nullable
-        manufacturer_item_gtin: char:14 nullable
+        item_gtin: json nullable #["01234567", "0123456789012", "12345678"]
         buyer_item_number: string:35 nullable
+        discount_group_id: string:20 nullable
+        discount_group_description: json nullable #[{"Language" : "en-GB","DiscountGroupDescription" : "Discount group 1"},{"Language" : "nl-NL","DiscountGroupDescription" : "Kortingsgroep 1"}],  
+        bonus_group_id: string:20 nullable
+        bonus_group_description: json nullable # [{"Language" : "en-GB","BonusGroupDescription" : "Bonus group 1"},{"Language" : "nl-NL","BonusGroupDescription" : "bonusgroep 1"}],
         item_validity_date: date nullable
         item_obslescence_date: date nullable
         relationships:
@@ -571,19 +571,19 @@ models:
         adr_category: enum:0,1,2,3,4 nullable
         net_weight_hazardous_substances: unsignedDecimal:16,4 nullable
         volume_hazardous_substances: unsignedDecimal:16,4 nullable
-        un_shipping_name: json nullable # "UnShippingName": [{"Language": "(char:5)", "UnShippingName": "(string:250)" }, {..}]
+        un_shipping_name: json nullable # [{"Language": "(char:5)", "UnShippingName": "(string:255)" }, {..}]
         packing_group: enum:I,II,III nullable
         limited_quantities: boolean nullable
         excepted_quantities: boolean nullable
         aggregation_state: enum:L,S,G nullable
         special_provision_id: json nullable # multiple of string:6 "ProvisionId" : ["$providion_id[0]", .. ,"$providion_id[n]"]
         classification_code: string:5 nullable
-        hazard_label: json nullable # multiple of string:3 "HazardLabel": ["(sting:3)", "(sting:3)", .. ]
+        hazard_label: json nullable # ["1","6.1","8"]
         environmental_hazards: boolean nullable
         tunnel_code: enum:A,B,C,D,E nullable
-        label_code: json nullable # multiple of enum:["GHS01","GHS02',"GHS03","GHS04","GHS05","GHS06","GHS07","GHS08","GHS09"]
+        label_code: json nullable # multiple of enum:["GHS01","GHS02","GHS03","GHS04","GHS05","GHS06","GHS07","GHS08","GHS09"]
         signal_word: enum:D,W nullable
-        hazard_statement: json nullable # multiple of ["(string:6)",".."] 
+        hazard_statement: json nullable # multiple of e.g. ["AUH029","H241", "EUH430"]
         precautionary_statement: json nullable # multiple of ["(char:4 P[0-3]{3})", ".."]
         li_ion_tested: boolean nullable
         lithium_amount: unsignedDecimal:16,4 nullable
@@ -629,7 +629,7 @@ models:
         supplier_item_number: string:35 index
         description_language: char:5 nullable
         minimal_item_description: string:80
-        unique_main_item_description: string:256 nullable
+        unique_main_item_description: string:255 nullable
         relationships:
             belongsTo: TradeItem
 
@@ -644,7 +644,7 @@ models:
         etim_value_range_lower: decimal:16,4 nullable
         etim_value_upper: decimal:16,4 nullable
         etim_value_logical: boolean nullable
-        etim_value_details: json nullable # "EtimValueDetails": [{"Language": "(char:5)", "EtimValueDetails": "(string:250)" }, {..}]
+        etim_value_details: json nullable # "EtimValueDetails": [{"Language": "(char:5)", "EtimValueDetails": "(string:255)" }, {..}]
         reason_no_value: enum:MV,NA,UN nullable
         relationships:
             belongsTo: EtimClassification
@@ -653,9 +653,8 @@ models:
         id: id
         trade_item_id: bigInteger unsigned index foreign:TradeItem.id
         related_supplier_item_number: string:35 foreign:TradeItem.supplier_item_number
-        related_supplier_item_gtin: char:14 nullable foreign:TradeItem.supplier_item_gtin
         related_manufacturer_item_number: string:35 nullable
-        related_manufacturer_item_gtin: char:14 nullable
+        item_gtin: json nullable #["01234567", "0123456789012", "12345678"]
         relation_type: enum:"ACCESSORY","MAIN_PRODUCT","CONSISTS_OF","CROSS-SELLING","MANDATORY","SELECT","SIMILAR","SPAREPART","UPSELLING","SUCCESSOR","PREDECESSOR","OTHER"
         related_item_quantity: mediumInteger unsigned default:1
         relationships:

@@ -18,9 +18,8 @@ class ItemRelation extends Model
     protected $fillable = [
         'trade_item_id',
         'related_supplier_item_number',
-        'related_supplier_item_gtin',
         'related_manufacturer_item_number',
-        'related_manufacturer_item_gtin',
+        'related_item_gtin',
         'relation_type',
         'related_item_quantity',
     ];
@@ -34,6 +33,8 @@ class ItemRelation extends Model
         'id' => 'integer',
         'trade_item_id' => 'integer',
         'related_item_quantity' => 'integer',
+        'item_gtin' => 'array',
+        
     ];
 
     public function tradeItem(): BelongsTo

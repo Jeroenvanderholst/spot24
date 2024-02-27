@@ -2,6 +2,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +28,10 @@ Route::get('/', function () {
 Route::redirect('/', '/home');
 
 Route::get('/home', function () {
-    return Inertia::render('Home');
-})->middleware(['auth', 'verified'])->name('home');
+    return Inertia::render('Home', [
+    'etim_connection' => Session::get('etim_connection')
+    ]);
+})->middleware(['auth', 'verified', 'etimapi'])->name('home');
 
 
 
@@ -41,13 +44,12 @@ Route::get('/products', function () {
     return Inertia::render('Products');
 })->middleware(['auth', 'verified'])->name('products');
 
-Route::get('/etim', function () {
-    return Inertia::render('Etim');
-})->middleware(['auth', 'verified'])->name('etim');
+ Route::get('/etim', function () {
+     return Inertia::render('Etim');
+ })->middleware(['auth', 'verified'])->name('etim');
 
 
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
     //profile controllers
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -69,6 +71,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('modelling-class-port', App\Http\Controllers\Etim\ModellingClassPortController::class);
     Route::resource('modelling-class-feature', App\Http\Controllers\Etim\ModellingClassFeatureController::class);
     Route::resource('synonym', App\Http\Controllers\Etim\SynonymController::class);
+    Route::resource('modelupdate', App\Http\Controllers\Etim\ModelUpdateController::class)->middleware('etimapi');
 
     //xChange Controllers
     Route::resource('product-detail', App\Http\Controllers\EtimXchange\ProductDetailController::class);

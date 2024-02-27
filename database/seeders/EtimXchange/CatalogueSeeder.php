@@ -12,6 +12,6 @@ class CatalogueSeeder extends Seeder
      */
     public function run(): void
     {
-        Catalogue::factory()->count(5)->create();
+        Catalogue::factory()->count(2)->create();
     }
 }

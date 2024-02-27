@@ -24,9 +24,8 @@ class EnclosedTradeItemFactory extends Factory
         return [
             'packaging_id' => PackagingIdentification::factory(),
             'supplier_item_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'supplier_item_gtin' => $this->faker->randomLetter(),
             'manufacturer_item_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'manufacturer_item_gtin' => $this->faker->randomLetter(),
+            'item_gtin' => $this->faker->randomElements(["01234567", "0123456789012", "12345678"], null),
             'enclosed_item_quantity' => $this->faker->randomNumber(),
             'packaging_identification_id' => PackagingIdentification::factory(),
         ];

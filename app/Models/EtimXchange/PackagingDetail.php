@@ -19,7 +19,7 @@ class PackagingDetail extends Model
         'packaging_id',
         'supplier_packaging_part_number',
         'manufacturer_packaging_part_number',
-        'manufacturer_packaging_part_gtin',
+        'packaging_part_gtin',
         'packaging_type_length',
         'packaging_type_width',
         'packaging_type_height',
@@ -39,6 +39,7 @@ class PackagingDetail extends Model
     protected $casts = [
         'id' => 'integer',
         'packaging_id' => 'integer',
+        'packaging_part_gtin'=> 'array',
         'packaging_type_length' => 'decimal:4',
         'packaging_type_width' => 'decimal:4',
         'packaging_type_height' => 'decimal:4',

@@ -25,7 +25,7 @@ class EtimServiceProvider extends ServiceProvider
         // Get the client credentials from the ENV file and set the scope
         $client_id = env('ETIM_CLIENT_ID');
         $client_secret = env('ETIM_CLIENT_SECRET');
-        $scope = 'EtimApi';
+        $scope = env('ETIM_SCOPE');
 
 
         // Set the API's token endpoint

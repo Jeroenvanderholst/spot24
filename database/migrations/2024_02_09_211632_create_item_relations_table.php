@@ -19,10 +19,8 @@ return new class extends Migration
             $table->foreign('trade_item_id')->references('id')->on('trade_items');
             $table->string('related_supplier_item_number', 35);
             $table->foreign('related_supplier_item_number')->references('supplier_item_number')->on('trade_items');
-            $table->char('related_supplier_item_gtin', 14)->nullable();
-            $table->foreign('related_supplier_item_gtin')->references('supplier_item_gtin')->on('trade_items');
             $table->string('related_manufacturer_item_number', 35)->nullable();
-            $table->char('related_manufacturer_item_gtin', 14)->nullable();
+            $table->char('related_item_gtin', 14)->nullable();
             $table->enum('relation_type', ["ACCESSORY","MAIN_PRODUCT","CONSISTS_OF","CROSS-SELLING","MANDATORY","SELECT","SIMILAR","SPAREPART","UPSELLING","SUCCESSOR","PREDECESSOR","OTHER"]);
             $table->unsignedMediumInteger('related_item_quantity')->default(1);
             $table->timestamps();

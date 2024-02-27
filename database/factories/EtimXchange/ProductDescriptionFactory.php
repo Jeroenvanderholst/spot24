@@ -24,14 +24,14 @@ class ProductDescriptionFactory extends Factory
         return [
             'product_id' => Product::factory(),
             'manufacturer_product_number' => $this->faker->regexify('[A-Za-z0-9]{35}'),
-            'description_language' => $this->faker->randomLetter(),
+            'description_language' => str_replace("_","-", $this->faker->locale()),
             'minimal_product_description' => $this->faker->regexify('[A-Za-z0-9]{80}'),
             'unique_main_product_description' => $this->faker->regexify('[A-Za-z0-9]{256}'),
             'full_product_description' => $this->faker->text(),
             'product_marketing_text' => $this->faker->text(),
             'product_specification_text' => $this->faker->text(),
             'product_application_instructions' => $this->faker->text(),
-            'product_keyword' => $this->faker->regexify('[A-Za-z0-9]{50}'),
+            'product_keyword' => $this->faker->randomElements(["New","Offer","Best in tests", "Premium"]),
             'product_page_uri' => $this->faker->regexify('[A-Za-z0-9]{255}'),
         ];
     }

@@ -22,7 +22,7 @@ class CatalogueFactory extends Factory
     {
         return [
             'catalogue_id' => $this->faker->regexify('[A-Za-z0-9]{20}'),
-            'catalogue_name' => '{}',
+            'catalogue_name' => '[{"Language" : "en-GB"", "CatalogueName" : "Fall/Winter 2023/2024"}, {"Language" : "fr-FR"", "CatalogueName" : "Automne/Hiver 2023/2024"}]',
             'version' => $this->faker->regexify('[A-Za-z0-9]{50}'),
             'contract_reference_number' => $this->faker->regexify('[A-Za-z0-9]{20}'),
             'catalogue_type' => $this->faker->randomElement(["FULL","CHANGE"]),
@@ -37,8 +37,8 @@ class CatalogueFactory extends Factory
             'datapool_gln' => $this->faker->randomLetter(),
             'catalogue_validity_start' => $this->faker->date(),
             'catalogue_validity_end' => $this->faker->date(),
-            'country' => $this->faker->country(),
-            'language' => $this->faker->randomLetter(),
+            'country' => $this->faker->randomElement([["NL", "DE", "FR"],["NL", "FR", "UK"],["DE", "FR", "BE"],]),
+            'language' => $this->faker->randomElement('["en-US", "fr-FR", "de-DE", "es-ES"], ["en-UK", "fr-FR", "de-CH", "es-ES"], ["en-GB", "fr-CH", "de-DE", "dk-DK"]'),
             'currency_code' => $this->faker->randomLetter(),
         ];
     }

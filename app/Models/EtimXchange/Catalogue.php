@@ -48,6 +48,8 @@ class Catalogue extends Model
         'generation_date' => 'date',
         'catalogue_validity_start' => 'date',
         'catalogue_validity_end' => 'date',
+        'country' => 'array',
+        'language' => 'array',
     ];
 
     public function catalogueSuppliers(): HasMany
