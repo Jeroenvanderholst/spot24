@@ -57,32 +57,27 @@ final class EtimClassificationControllerTest extends TestCase
         $product_id = $this->faker->numberBetween(-100000, 100000);
         $manufacturer_product_nr = $this->faker->word();
         $etim_release_version = $this->faker->word();
-        $etim_class_code = $this->faker->randomLetter();
+        $etim_class_id = $this->faker->randomLetter();
         $etim_class_version = $this->faker->numberBetween(-8, 8);
-        $etim_modelling_class_code = $this->faker->randomLetter();
-        $product_class = ProductClass::factory()->create();
-        $modelling_class = ModellingClass::factory()->create();
+        $etim_modelling_class_id = $this->faker->randomLetter();
 
         $response = $this->post(route('etim-classification.store'), [
             'product_id' => $product_id,
             'manufacturer_product_nr' => $manufacturer_product_nr,
             'etim_release_version' => $etim_release_version,
-            'etim_class_code' => $etim_class_code,
+            'etim_class_id' => $etim_class_id,
             'etim_class_version' => $etim_class_version,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
-            'product_class_id' => $product_class->id,
-            'modelling_class_id' => $modelling_class->id,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
+
         ]);
 
         $etimClassifications = EtimClassification::query()
             ->where('product_id', $product_id)
             ->where('manufacturer_product_nr', $manufacturer_product_nr)
             ->where('etim_release_version', $etim_release_version)
-            ->where('etim_class_code', $etim_class_code)
+            ->where('etim_class_id', $etim_class_id)
             ->where('etim_class_version', $etim_class_version)
-            ->where('etim_modelling_class_code', $etim_modelling_class_code)
-            ->where('product_class_id', $product_class->id)
-            ->where('modelling_class_id', $modelling_class->id)
+            ->where('etim_modelling_class_id', $etim_modelling_class_id)
             ->get();
         $this->assertCount(1, $etimClassifications);
         $etimClassification = $etimClassifications->first();
@@ -135,21 +130,19 @@ final class EtimClassificationControllerTest extends TestCase
         $product_id = $this->faker->numberBetween(-100000, 100000);
         $manufacturer_product_nr = $this->faker->word();
         $etim_release_version = $this->faker->word();
-        $etim_class_code = $this->faker->randomLetter();
+        $etim_class_id = $this->faker->randomLetter();
         $etim_class_version = $this->faker->numberBetween(-8, 8);
-        $etim_modelling_class_code = $this->faker->randomLetter();
-        $product_class = ProductClass::factory()->create();
-        $modelling_class = ModellingClass::factory()->create();
+        $etim_modelling_class_id = $this->faker->randomLetter();
+
 
         $response = $this->put(route('etim-classification.update', $etimClassification), [
             'product_id' => $product_id,
             'manufacturer_product_nr' => $manufacturer_product_nr,
             'etim_release_version' => $etim_release_version,
-            'etim_class_code' => $etim_class_code,
+            'etim_class_id' => $etim_class_id,
             'etim_class_version' => $etim_class_version,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
-            'product_class_id' => $product_class->id,
-            'modelling_class_id' => $modelling_class->id,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
+
         ]);
 
         $etimClassification->refresh();
@@ -160,9 +153,9 @@ final class EtimClassificationControllerTest extends TestCase
         $this->assertEquals($product_id, $etimClassification->product_id);
         $this->assertEquals($manufacturer_product_nr, $etimClassification->manufacturer_product_nr);
         $this->assertEquals($etim_release_version, $etimClassification->etim_release_version);
-        $this->assertEquals($etim_class_code, $etimClassification->etim_class_code);
+        $this->assertEquals($etim_class_id, $etimClassification->etim_class_id);
         $this->assertEquals($etim_class_version, $etimClassification->etim_class_version);
-        $this->assertEquals($etim_modelling_class_code, $etimClassification->etim_modelling_class_code);
+        $this->assertEquals($etim_modelling_class_id, $etimClassification->etim_modelling_class_id);
         $this->assertEquals($product_class->id, $etimClassification->product_class_id);
         $this->assertEquals($modelling_class->id, $etimClassification->modelling_class_id);
     }

@@ -17,10 +17,10 @@ class EtimFeature extends Model
      */
     protected $fillable = [
         'product_id',
-        'etim_class_code',
+        'etim_class_id',
         'etim_class_version',
-        'etim_feature_code',
-        'etim_value_code',
+        'etim_feature_id',
+        'etim_value_id',
         'etim_value_numeric',
         'etim_value_range_lower',
         'etim_value_upper',

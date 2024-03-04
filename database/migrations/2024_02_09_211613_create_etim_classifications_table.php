@@ -20,14 +20,12 @@ return new class extends Migration
             $table->string('manufacturer_product_nr', 35)->index();
             $table->string('etim_release_version', 7);
             $table->date('etim_dynamic_release_date')->nullable();
-            $table->char('etim_class_code', 8)->index();
-            $table->foreign('etim_class_code')->references('class_id')->on('etim\_product_class');
+            $table->char('etim_class_id', 8)->index();
+            $table->foreign('etim_class_id')->references('class_id')->on('etim\_product_class');
             $table->unsignedTinyInteger('etim_class_version');
-            $table->char('etim_modelling_class_code', 8)->index();
-            $table->foreign('etim_modelling_class_code')->references('modelling_class_id')->on('\_etim\_modelling_class');
+            $table->char('etim_modelling_class_id', 8)->index();
+            $table->foreign('etim_modelling_class_id')->references('etim_modelling_class_id')->on('etim\modelling_class');
             $table->unsignedTinyInteger('etim_modelling_class_version')->nullable();
-            $table->foreignId('product_class_id');
-            $table->foreignId('modelling_class_id');
             $table->timestamps();
         });
 

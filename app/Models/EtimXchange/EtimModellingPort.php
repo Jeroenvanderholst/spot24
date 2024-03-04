@@ -18,6 +18,7 @@ class EtimModellingPort extends Model
      */
     protected $fillable = [
         'product_id',
+        'etim_modelling_class_id',
         'etim_modelling_portcode',
         'etim_modelling_connection_type_code',
         'etim_modelling_connection_type_version',

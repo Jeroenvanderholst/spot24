@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('product_id')->on('etim_classification');
+            $table->char('etim_modelling_class_id',8);
+            $table->foreign('etim_modelling_class_id')->references('etim_modelling_class_id')->on('etim_classification');
             $table->unsignedTinyInteger('etim_modelling_portcode');
             $table->char('etim_modelling_connection_type_code', 8);
-            $table->foreign('etim_modelling_connection_type_code')->references('modelling_class_id')->on('etim\_modelling_class');
+            $table->foreign('etim_modelling_connection_type_code')->references('etim_modelling_class_id')->on('etim\modelling_class');
             $table->unsignedTinyInteger('etim_modelling_connection_type_version');
             $table->foreignId('etim_classification_id');
             $table->timestamps();

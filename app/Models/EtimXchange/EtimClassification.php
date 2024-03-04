@@ -23,12 +23,10 @@ class EtimClassification extends Model
         'manufacturer_product_nr',
         'etim_release_version',
         'etim_dynamic_release_date',
-        'etim_class_code',
+        'etim_class_id',
         'etim_class_version',
-        'etim_modelling_class_code',
+        'etim_modelling_class_id',
         'etim_modelling_class_version',
-        'product_class_id',
-        'modelling_class_id',
     ];
 
     /**
@@ -42,8 +40,6 @@ class EtimClassification extends Model
         'etim_dynamic_release_date' => 'date',
         'etim_class_version' => 'integer',
         'etim_modelling_class_version' => 'integer',
-        'product_class_id' => 'integer',
-        'modelling_class_id' => 'integer',
     ];
 
     public function etimFeatures(): HasMany
@@ -63,11 +59,11 @@ class EtimClassification extends Model
 
     public function productclass(): BelongsTo
     {
-        return $this->belongsTo(ProductClass::class, 'etim_class_code', 'class_id');
+        return $this->belongsTo(ProductClass::class, 'etim_class_id', 'class_id');
     }
 
     public function modellingclass(): BelongsTo
     {
-        return $this->belongsTo(ModellingClass::class, 'etim_modelling_class_code', 'modelling_class_id');
+        return $this->belongsTo(ModellingClass::class, 'etim_modelling_class_id', 'modelling_class_id');
     }
 }

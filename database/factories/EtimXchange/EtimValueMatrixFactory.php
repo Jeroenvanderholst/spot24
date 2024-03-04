@@ -23,8 +23,8 @@ class EtimValueMatrixFactory extends Factory
     {
         return [
             'etim_modelling_feature_id' => EtimModellingFeature::factory(),
-            'etim_modelling_class_code' => EtimModellingFeature::factory()->create()->etim_modelling_class_code,
-            'etim_feature_code' => EtimModellingFeature::factory()->create()->etim_feature_code,
+            'etim_modelling_class_id' => EtimModellingFeature::factory()->create()->etim_modelling_class_id,
+            'etim_feature_id' => EtimModellingFeature::factory()->create()->etim_feature_id,
             'etim_value_matrix_source' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_matrix_result' => $this->faker->randomFloat(4, 0, 999999999999.9999),
         ];

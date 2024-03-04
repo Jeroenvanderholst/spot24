@@ -15,8 +15,8 @@ return new class extends Migration
 
         Schema::create('class_features', function (Blueprint $table) {
             $table->id();
-            $table->char('class_code', 8)->index();
-            $table->foreign('class_code')->references('class_code')->on('product_classes');
+            $table->char('class_id', 8)->index();
+            $table->foreign('class_id')->references('class_id')->on('product_classes');
             $table->unsignedSmallInteger('sort_nr');
             $table->char('feature_id', 8);
             $table->foreign('feature_id')->references('id')->on('features');

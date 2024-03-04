@@ -30,6 +30,7 @@ class ModellingClass extends Model
         'changecode',
     ];
 
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -42,8 +43,7 @@ class ModellingClass extends Model
         'revision' => 'integer',
         'revision_date' => 'date',
         'modelling' => 'boolean',
-        'modelling_group_id' => 'integer',
-    ];
+        ];
 
     public function modellingClassFeatures(): HasMany
     {

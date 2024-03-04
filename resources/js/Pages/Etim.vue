@@ -1,6 +1,7 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -12,20 +13,20 @@ import { Head } from '@inertiajs/vue3';
         </template>
 
         <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="max-w-xl mx-auto sm:p-6 lg:p-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                
-                    <div class="p-6 text-gray-900"><a href="/etim/group/index">Groups</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/productclass/index">Product classes</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/modellingclass/index">Modelling classes</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/features/index">Features</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/values/index">Values</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/units/index">Units</a></div>
-                    <div class="p-6 text-gray-900"><a href="/etim/modelupdate">Model Update</a></div>
 
-                    
+                    <div class="p-6 text-gray-900 text-center"><Link href="/admin">View ETIM Model</Link></div>
+
                 </div>
             </div>
+            <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+
+                    <div class="p-6 text-gray-900 text-center"><Link href="/etim/modelupdate">Model Update via API</Link></div>
+
+                </div>
+            </div>                        
         </div>
     </AuthenticatedLayout>
 </template>

@@ -24,7 +24,7 @@ class ClassFeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            'class_code' => ProductClass::pluck('class_code')->random(),
+            'class_id' => ProductClass::pluck('class_id')->random(),
             'sort_nr' => $this->faker->randomNumber(2, false),
             'feature_id' => Feature::pluck('id')->random(),
             'unit_id' => Unit::pluck('unit_id')->random(),

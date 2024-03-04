@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use Database\Seeders\Etim\ClassFeatureSeeder;
+use Database\Seeders\Etim\ClassLinkSeeder;
 use Database\Seeders\Etim\FeatureSeeder;
 use Database\Seeders\Etim\FeatureValueSeeder;
 use Database\Seeders\Etim\GroupSeeder;
@@ -78,6 +79,7 @@ class DatabaseSeeder extends Seeder
             SynonymSeeder::class,
             TranslationSeeder::class,
             UnitTranslationSeeder::class,
+            ClassLinkSeeder::class,
             /*
             CatalogueSeeder::class,
             SupplierSeeder::class,

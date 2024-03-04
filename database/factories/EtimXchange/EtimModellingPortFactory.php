@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\EtimXchange\EtimClassification;
 use App\Models\EtimXchange\EtimModellingPort;
-use App\Models\Etim\Etim\ModellingClass;
+use App\Models\Etim\ModellingClass;
 
 class EtimModellingPortFactory extends Factory
 {
@@ -24,8 +24,9 @@ class EtimModellingPortFactory extends Factory
     {
         return [
             'product_id' => EtimClassification::factory()->create()->product_id,
+            'etim_modelling_class' => ModellingClass::factory()->create()->modelling_class_id,
             'etim_modelling_portcode' => $this->faker->randomDigitNotNull(),
-            'etim_modelling_connection_type_code' => Etim\ModellingClass::factory()->create()->modelling_class_id,
+            'etim_modelling_connection_type_code' => ModellingClass::factory()->create()->modelling_class_id,
             'etim_modelling_connection_type_version' => $this->faker->randomDigitNotNull(),
             'etim_classification_id' => EtimClassification::factory(),
         ];

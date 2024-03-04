@@ -22,10 +22,10 @@ class EtimModellingFeatureStoreRequest extends FormRequest
         return [
             'etim_modelling_port_id' => ['required', 'integer'],
             'product_id' => ['required', 'integer'],
-            'etim_modelling_class_code' => ['required', 'string'],
+            'etim_modelling_class_id' => ['required', 'string'],
             'etim_modelling_portcode' => ['required', 'integer'],
-            'etim_feature_code' => ['required', 'string', 'max:8'],
-            'etim_value_code' => ['nullable', 'string', 'max:8'],
+            'etim_feature_id' => ['required', 'string', 'max:8'],
+            'etim_value_id' => ['nullable', 'string', 'max:8'],
             'etim_value_numeric' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'etim_value_range_lower' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'etim_value_range_upper' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],

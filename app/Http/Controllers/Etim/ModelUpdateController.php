@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Etim;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
 class ModelUpdateController extends Controller
@@ -13,8 +14,10 @@ class ModelUpdateController extends Controller
      */
     public function index()
     {
-
-            return Inertia::render('Etim/ModelUpdate');
+        
+        return Inertia::render('Etim/ModelUpdate/Index', [
+            'etim_connection' => Session::get('etim_connection')
+        ]);
   
     }
 

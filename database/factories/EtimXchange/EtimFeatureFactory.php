@@ -23,10 +23,10 @@ class EtimFeatureFactory extends Factory
     {
         return [
             'product_id' => EtimClassification::factory()->create()->product_id,
-            'etim_class_code' => $this->faker->randomLetter(),
+            'etim_class_id' => $this->faker->randomLetter(),
             'etim_class_version' => $this->faker->randomDigitNotNull(),
-            'etim_feature_code' => $this->faker->randomLetter(),
-            'etim_value_code' => $this->faker->randomLetter(),
+            'etim_feature_id' => $this->faker->randomLetter(),
+            'etim_value_id' => $this->faker->randomLetter(),
             'etim_value_numeric' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_range_lower' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_upper' => $this->faker->randomFloat(4, 0, 999999999999.9999),

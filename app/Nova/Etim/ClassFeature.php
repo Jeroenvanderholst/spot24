@@ -33,7 +33,7 @@ class ClassFeature extends Resource
      */
     public static $search = [
         'id',
-        'class_code',
+        'class_id',
         'feature_id',
         'unit_id',
         'imp_unit_id',
@@ -49,7 +49,7 @@ class ClassFeature extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Class ID', 'class_code')->readonly()->sortable(),
+            Text::make('Class ID', 'class_id')->readonly()->sortable(),
             Number::make('Sort nr')->readonly()->sortable(),
             Text::make('Feature ID')->readonly(),
             Text::make('Unit ID')->readonly(),

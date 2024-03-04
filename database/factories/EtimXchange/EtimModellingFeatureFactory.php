@@ -24,10 +24,10 @@ class EtimModellingFeatureFactory extends Factory
         return [
             'etim_modelling_port_id' => EtimModellingPort::factory(),
             'product_id' => EtimModellingPort::factory()->create()->product_id,
-            'etim_modelling_class_code' => $this->faker->word(),
+            'etim_modelling_class_id' => $this->faker->word(),
             'etim_modelling_portcode' => $this->faker->randomDigitNotNull(),
-            'etim_feature_code' => $this->faker->randomLetter(),
-            'etim_value_code' => $this->faker->randomLetter(),
+            'etim_feature_id' => $this->faker->randomLetter(),
+            'etim_value_id' => $this->faker->randomLetter(),
             'etim_value_numeric' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_range_lower' => $this->faker->randomFloat(4, 0, 999999999999.9999),
             'etim_value_range_upper' => $this->faker->randomFloat(4, 0, 999999999999.9999),

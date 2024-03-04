@@ -17,8 +17,8 @@ class EtimValueMatrix extends Model
      */
     protected $fillable = [
         'etim_modelling_feature_id',
-        'etim_modelling_class_code',
-        'etim_feature_code',
+        'etim_modelling_class_id',
+        'etim_feature_id',
         'etim_value_matrix_source',
         'etim_value_matrix_result',
     ];

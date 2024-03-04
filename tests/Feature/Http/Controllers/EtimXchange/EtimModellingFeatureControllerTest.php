@@ -54,24 +54,24 @@ final class EtimModellingFeatureControllerTest extends TestCase
     {
         $etim_modelling_port_id = $this->faker->numberBetween(-100000, 100000);
         $product_id = $this->faker->numberBetween(-100000, 100000);
-        $etim_modelling_class_code = $this->faker->word();
+        $etim_modelling_class_id = $this->faker->word();
         $etim_modelling_portcode = $this->faker->numberBetween(-8, 8);
-        $etim_feature_code = $this->faker->randomLetter();
+        $etim_feature_id = $this->faker->randomLetter();
 
         $response = $this->post(route('etim-modelling-feature.store'), [
             'etim_modelling_port_id' => $etim_modelling_port_id,
             'product_id' => $product_id,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
             'etim_modelling_portcode' => $etim_modelling_portcode,
-            'etim_feature_code' => $etim_feature_code,
+            'etim_feature_id' => $etim_feature_id,
         ]);
 
         $etimModellingFeatures = EtimModellingFeature::query()
             ->where('etim_modelling_port_id', $etim_modelling_port_id)
             ->where('product_id', $product_id)
-            ->where('etim_modelling_class_code', $etim_modelling_class_code)
+            ->where('etim_modelling_class_id', $etim_modelling_class_id)
             ->where('etim_modelling_portcode', $etim_modelling_portcode)
-            ->where('etim_feature_code', $etim_feature_code)
+            ->where('etim_feature_id', $etim_feature_id)
             ->get();
         $this->assertCount(1, $etimModellingFeatures);
         $etimModellingFeature = $etimModellingFeatures->first();
@@ -123,16 +123,16 @@ final class EtimModellingFeatureControllerTest extends TestCase
         $etimModellingFeature = EtimModellingFeature::factory()->create();
         $etim_modelling_port_id = $this->faker->numberBetween(-100000, 100000);
         $product_id = $this->faker->numberBetween(-100000, 100000);
-        $etim_modelling_class_code = $this->faker->word();
+        $etim_modelling_class_id = $this->faker->word();
         $etim_modelling_portcode = $this->faker->numberBetween(-8, 8);
-        $etim_feature_code = $this->faker->randomLetter();
+        $etim_feature_id = $this->faker->randomLetter();
 
         $response = $this->put(route('etim-modelling-feature.update', $etimModellingFeature), [
             'etim_modelling_port_id' => $etim_modelling_port_id,
             'product_id' => $product_id,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
             'etim_modelling_portcode' => $etim_modelling_portcode,
-            'etim_feature_code' => $etim_feature_code,
+            'etim_feature_id' => $etim_feature_id,
         ]);
 
         $etimModellingFeature->refresh();
@@ -142,9 +142,9 @@ final class EtimModellingFeatureControllerTest extends TestCase
 
         $this->assertEquals($etim_modelling_port_id, $etimModellingFeature->etim_modelling_port_id);
         $this->assertEquals($product_id, $etimModellingFeature->product_id);
-        $this->assertEquals($etim_modelling_class_code, $etimModellingFeature->etim_modelling_class_code);
+        $this->assertEquals($etim_modelling_class_id, $etimModellingFeature->etim_modelling_class_id);
         $this->assertEquals($etim_modelling_portcode, $etimModellingFeature->etim_modelling_portcode);
-        $this->assertEquals($etim_feature_code, $etimModellingFeature->etim_feature_code);
+        $this->assertEquals($etim_feature_id, $etimModellingFeature->etim_feature_id);
     }
 
 

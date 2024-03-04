@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('manufacturer_name', 80);
             $table->string('manufacturer_shortname', 15)->nullable();
             $table->string('manufacturer_product_number', 35)->index();
-            $table->json('product_gtin')->unique();
+            $table->json('product_gtin');
             $table->boolean('unbranded_product')->nullable();
             $table->string('brand_name', 50)->nullable();
             $table->json('brand_series')->nullable();

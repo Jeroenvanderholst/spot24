@@ -9,14 +9,14 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class ModellingClassPort extends Resource
+class ClassLink extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Etim\ModellingClassPort>
+     * @var class-string<\App\Models\Etim\ClassLink>
      */
-    public static $model = \App\Models\Etim\ModellingClassPort::class;
+    public static $model = \App\Models\Etim\ClassLink::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -33,7 +33,7 @@ class ModellingClassPort extends Resource
     public static $search = [
         'id',
         'modelling_class_id',
-        'connection_type_id',
+        'product_class_id',
     ];
 
     /**
@@ -45,10 +45,11 @@ class ModellingClassPort extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable()->hideFromIndex(),
-            Text::make('modelling_class_id')->sortable()->filterable(),
-            Number::make('port_code')->sortable(),
-            Text::make('connection_type_id')->sortable()->filterable(),
+            ID::make()->sortable(),
+            Text::make('modelling_class_id')->sortable(),
+            Number::make('modelling_class_version')->sortable(),
+            Text::make('product_class_id')->sortable(),
+            Number::make('product_class_version')->sortable(),
         ];
     }
 

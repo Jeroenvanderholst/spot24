@@ -19,42 +19,32 @@ class EtimApi
      */
     public function handle(Request $request, Closure $next): Response
     {
+        $tokenData = Session::get('etim_connection');   
                 
-        // Check if a token was already issued and stored in the session
-
-        $tokenData = Session::get('etim_connection');
-
         if($tokenData && $this->isTokenValid($tokenData)) {
           
             return $next($request);
         }
 
-        // If no token is found or it's expirec, retrieve a new token
-
         $response = $this->retrieveToken();
-
-
-         //Check if the response was succesful
 
         if ($response->successful()) {
             $tokenData = $response->json();
 
-            // Retrieve the bearer token from the response
             $bearerToken = $tokenData['access_token'];
            
-            // Use the bearer token as needed
-
             $etimConnection = [
-                'etim_access_token' => $bearerToken,
+                'access_token' => $bearerToken,
                 'expires_at' => now()->addSeconds(3600),
             ];
 
             Session::put('etim_connection', $etimConnection);
 
-            //Proceed with the request
-
             return $next($request);
 
+        } else {
+            echo 'There was a problem with authenticating the ETIM API connection.';
+            echo $response->body();       
         }
     }
 
@@ -71,23 +61,17 @@ class EtimApi
 
     private function retrieveToken()
     {
-        // Get the client credentials from the ENV file and set the scope
         $client_id = env('ETIM_CLIENT_ID');
         $client_secret = env('ETIM_CLIENT_SECRET');
         $scope = env('ETIM_SCOPE');
-
-        // Set the API's token endpoint
-
         $authUrl = env('ETIM_AUTH_URL');
 
         try{
 
             $response = Http::withoutVerifying()->withHeaders([
-
-            // 'Authorization' => 'Basic' . $encodedCredentials,
              'Accept' => 'application/json',
             ])->asForm()->post($authUrl,  [
-                'grant_type' => 'client_credentials', //assuming 'client credentials' grant type
+                'grant_type' => 'client_credentials',
                 'client_id' => $client_id,
                 'client_secret' => $client_secret,
                 'scope' => $scope,
@@ -95,13 +79,11 @@ class EtimApi
 
             return $response;
 
-        } catch (Exception $error) {
+        } catch (Exception $e) {
 
-            // Handle the error
-            $error = $response->body();
-
-            // Log or return the error message
-            dd($error);
+            echo 'There was a problem with authenticating the ETIM API connection.';
+            echo $response->body();
+            
 
         }
     }

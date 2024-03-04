@@ -21,8 +21,8 @@ class EtimValueMatrixUpdateRequest extends FormRequest
     {
         return [
             'etim_modelling_feature_id' => ['required', 'integer'],
-            'etim_modelling_class_code' => ['required', 'string', 'max:8'],
-            'etim_feature_code' => ['required', 'string', 'max:8'],
+            'etim_modelling_class_id' => ['required', 'string', 'max:8'],
+            'etim_feature_id' => ['required', 'string', 'max:8'],
             'etim_value_matrix_source' => ['required', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'etim_value_matrix_result' => ['required', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
         ];

@@ -27,7 +27,7 @@ class FeatureValueFactory extends Factory
     public function definition(): array
     {
         $entities = ModellingClass::pluck('modelling_class_id');
-        $entities = ProductClass::pluck('class_code');
+        $entities = ProductClass::pluck('class_id');
 
         return [
             'entity_id' => $entities->random(),

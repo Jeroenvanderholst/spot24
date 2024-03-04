@@ -158,8 +158,8 @@ models:
     EtimXchange\EtimValueMatrix:
         id: id
         etim_modelling_feature_id: bigInteger unsigned index foreign:EtimModellingFeature.id
-        etim_modelling_class_code: char:8 index foreign:EtimModellingFeature.etim_modelling_class_code
-        etim_feature_code: char:8 index foreign:EtimModellingFeature.etim_feature_code
+        etim_modelling_class_id: char:8 index foreign:EtimModellingFeature.etim_modelling_class_id
+        etim_feature_id: char:8 index foreign:EtimModellingFeature.etim_feature_id
         etim_value_matrix_source: decimal:16,4
         etim_value_matrix_result: decimal:16,4
         relationships:
@@ -329,9 +329,9 @@ models:
         manufacturer_product_nr: string:35 index
         etim_release_version: string:7
         etim_dynamic_release_date: date nullable
-        etim_class_code: char:8 index foreign:Etim\ProductClass.class_id
+        etim_class_id: char:8 index foreign:Etim\ProductClass.class_id
         etim_class_version: tinyInteger unsigned
-        etim_modelling_class_code: char:8 index foreign:\Etim\ModellingClass.modelling_class_id #only those with pattern MC[0-9]{6}
+        etim_modelling_class_id: char:8 index foreign:\Etim\ModellingClass.modelling_class_id #only those with pattern MC[0-9]{6}
         etim_modelling_class_version: tinyInteger nullable unsigned
         relationships:
             hasMany: EtimFeature, EtimModellingPort
@@ -608,10 +608,10 @@ models:
         id: id
         etim_modelling_port_id: bigInteger unsigned index foreign:EtimModellingPort.id
         product_id: bigInteger unsigned index foreign:EtimModellingPort.product_id
-        etim_modelling_class_code: char(8) index
+        etim_modelling_class_id: char(8) index
         etim_modelling_portcode: tinyInteger unsigned
-        etim_feature_code: char:8
-        etim_value_code: char:8 nullable
+        etim_feature_id: char:8
+        etim_value_id: char:8 nullable
         etim_value_numeric: decimal:16,4 nullable
         etim_value_range_lower: decimal:16,4 nullable
         etim_value_range_upper: decimal:16,4 nullable
@@ -636,10 +636,10 @@ models:
     EtimXchange\EtimFeature:
         id: id
         product_id: bigInteger unsigned index foreign:EtimClassification.product_id
-        etim_class_code: char:8 index
+        etim_class_id: char:8 index
         etim_class_version: tinyInteger unsigned
-        etim_feature_code: char:8 index
-        etim_value_code: char:8 nullable
+        etim_feature_id: char:8 index
+        etim_value_id: char:8 nullable
         etim_value_numeric: decimal:16,4 nullable
         etim_value_range_lower: decimal:16,4 nullable
         etim_value_upper: decimal:16,4 nullable

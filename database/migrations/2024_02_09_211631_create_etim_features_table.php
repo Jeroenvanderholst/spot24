@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('product_id')->on('etim_classifications');
-            $table->char('etim_class_code', 8)->index();
+            $table->char('etim_class_id', 8)->index();
             $table->unsignedTinyInteger('etim_class_version');
-            $table->char('etim_feature_code', 8)->index();
-            $table->char('etim_value_code', 8)->nullable();
+            $table->char('etim_feature_id', 8)->index();
+            $table->char('etim_value_id', 8)->nullable();
             $table->decimal('etim_value_numeric', 16, 4)->nullable();
             $table->decimal('etim_value_range_lower', 16, 4)->nullable();
             $table->decimal('etim_value_upper', 16, 4)->nullable();

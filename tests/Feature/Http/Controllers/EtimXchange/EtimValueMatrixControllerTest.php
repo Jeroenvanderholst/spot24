@@ -53,23 +53,23 @@ final class EtimValueMatrixControllerTest extends TestCase
     public function store_saves_and_redirects(): void
     {
         $etim_modelling_feature_id = $this->faker->numberBetween(-100000, 100000);
-        $etim_modelling_class_code = $this->faker->randomLetter();
-        $etim_feature_code = $this->faker->randomLetter();
+        $etim_modelling_class_id = $this->faker->randomLetter();
+        $etim_feature_id = $this->faker->randomLetter();
         $etim_value_matrix_source = $this->faker->randomFloat(/** decimal_attributes **/);
         $etim_value_matrix_result = $this->faker->randomFloat(/** decimal_attributes **/);
 
         $response = $this->post(route('etim-value-matrix.store'), [
             'etim_modelling_feature_id' => $etim_modelling_feature_id,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
-            'etim_feature_code' => $etim_feature_code,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
+            'etim_feature_id' => $etim_feature_id,
             'etim_value_matrix_source' => $etim_value_matrix_source,
             'etim_value_matrix_result' => $etim_value_matrix_result,
         ]);
 
         $etimValueMatrices = EtimValueMatrix::query()
             ->where('etim_modelling_feature_id', $etim_modelling_feature_id)
-            ->where('etim_modelling_class_code', $etim_modelling_class_code)
-            ->where('etim_feature_code', $etim_feature_code)
+            ->where('etim_modelling_class_id', $etim_modelling_class_id)
+            ->where('etim_feature_id', $etim_feature_id)
             ->where('etim_value_matrix_source', $etim_value_matrix_source)
             ->where('etim_value_matrix_result', $etim_value_matrix_result)
             ->get();
@@ -122,15 +122,15 @@ final class EtimValueMatrixControllerTest extends TestCase
     {
         $etimValueMatrix = EtimValueMatrix::factory()->create();
         $etim_modelling_feature_id = $this->faker->numberBetween(-100000, 100000);
-        $etim_modelling_class_code = $this->faker->randomLetter();
-        $etim_feature_code = $this->faker->randomLetter();
+        $etim_modelling_class_id = $this->faker->randomLetter();
+        $etim_feature_id = $this->faker->randomLetter();
         $etim_value_matrix_source = $this->faker->randomFloat(/** decimal_attributes **/);
         $etim_value_matrix_result = $this->faker->randomFloat(/** decimal_attributes **/);
 
         $response = $this->put(route('etim-value-matrix.update', $etimValueMatrix), [
             'etim_modelling_feature_id' => $etim_modelling_feature_id,
-            'etim_modelling_class_code' => $etim_modelling_class_code,
-            'etim_feature_code' => $etim_feature_code,
+            'etim_modelling_class_id' => $etim_modelling_class_id,
+            'etim_feature_id' => $etim_feature_id,
             'etim_value_matrix_source' => $etim_value_matrix_source,
             'etim_value_matrix_result' => $etim_value_matrix_result,
         ]);
@@ -141,8 +141,8 @@ final class EtimValueMatrixControllerTest extends TestCase
         $response->assertSessionHas('etimValueMatrix.id', $etimValueMatrix->id);
 
         $this->assertEquals($etim_modelling_feature_id, $etimValueMatrix->etim_modelling_feature_id);
-        $this->assertEquals($etim_modelling_class_code, $etimValueMatrix->etim_modelling_class_code);
-        $this->assertEquals($etim_feature_code, $etimValueMatrix->etim_feature_code);
+        $this->assertEquals($etim_modelling_class_id, $etimValueMatrix->etim_modelling_class_id);
+        $this->assertEquals($etim_feature_id, $etimValueMatrix->etim_feature_id);
         $this->assertEquals($etim_value_matrix_source, $etimValueMatrix->etim_value_matrix_source);
         $this->assertEquals($etim_value_matrix_result, $etimValueMatrix->etim_value_matrix_result);
     }

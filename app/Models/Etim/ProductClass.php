@@ -17,7 +17,7 @@ class ProductClass extends Model
      * @var array
      */
     protected $fillable = [
-        'class_code',
+        'class_id',
         'status',
         'version',
         'mutation_date',

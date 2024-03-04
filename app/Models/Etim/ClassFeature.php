@@ -17,7 +17,7 @@ class ClassFeature extends Model
      * @var array
      */
     protected $fillable = [
-        'class_code',
+        'class_id',
         'sort_nr',
         'feature_id',
         'unit_id',

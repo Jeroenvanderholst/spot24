@@ -19,10 +19,11 @@ return new class extends Migration
             $table->foreign('etim_modelling_port_id')->references('id')->on('etim_modelling_ports');
             $table->unsignedBigInteger('product_id')->index();
             $table->foreign('product_id')->references('product_id')->on('etim_modelling_port');
-            $table->string('etim_modelling_class_code')->index();
+            $table->string('etim_modelling_class_id')->index();
+            $table->foreign('etim_modelling_class_id')->references('etim_modelling_class_id')->on('etim_modelling_port');
             $table->unsignedTinyInteger('etim_modelling_portcode');
-            $table->char('etim_feature_code', 8);
-            $table->char('etim_value_code', 8)->nullable();
+            $table->char('etim_feature_id', 8);
+            $table->char('etim_value_id', 8)->nullable();
             $table->decimal('etim_value_numeric', 16, 4)->nullable();
             $table->decimal('etim_value_range_lower', 16, 4)->nullable();
             $table->decimal('etim_value_range_upper', 16, 4)->nullable();

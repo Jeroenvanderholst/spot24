@@ -21,10 +21,10 @@ class EtimFeatureStoreRequest extends FormRequest
     {
         return [
             'product_id' => ['required', 'integer'],
-            'etim_class_code' => ['required', 'string', 'max:8'],
+            'etim_class_id' => ['required', 'string', 'max:8'],
             'etim_class_version' => ['required', 'integer'],
-            'etim_feature_code' => ['required', 'string', 'max:8'],
-            'etim_value_code' => ['nullable', 'string', 'max:8'],
+            'etim_feature_id' => ['required', 'string', 'max:8'],
+            'etim_value_id' => ['nullable', 'string', 'max:8'],
             'etim_value_numeric' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'etim_value_range_lower' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],
             'etim_value_upper' => ['nullable', 'numeric', 'between:-999999999999.9999,999999999999.9999'],

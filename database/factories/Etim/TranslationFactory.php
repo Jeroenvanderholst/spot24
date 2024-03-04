@@ -26,7 +26,7 @@ class TranslationFactory extends Factory
      */
     public function definition(): array
     {
-        $entities = ProductClass::pluck('class_code');
+        $entities = ProductClass::pluck('class_id');
         $entities = ModellingClass::pluck('modelling_class_id');
         $entities = Feature::pluck('id');
         $entities = Group::pluck('id');

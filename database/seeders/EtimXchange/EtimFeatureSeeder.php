@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders\Etim;
+namespace Database\Seeders\EtimXchange;
 
 use App\Models\EtimXchange\EtimFeature;
 use Illuminate\Database\Seeder;
