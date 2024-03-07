@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Http\Controllers\EtimXchange;
 
-use App\Models\EtimClassification;
-use App\Models\EtimFeature;
+use App\ModelsClassification;
+use App\ModelsFeature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\EtimFeatureController
+ * @see \App\Http\Controllers\EtimFeatureController
  */
 final class EtimFeatureControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class EtimFeatureControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimFeatureController::class,
+            \App\Http\Controllers\EtimFeatureController::class,
             'store',
             \App\Http\Requests\EtimXchange\EtimFeatureStoreRequest::class
         );
@@ -112,7 +112,7 @@ final class EtimFeatureControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimFeatureController::class,
+            \App\Http\Controllers\EtimFeatureController::class,
             'update',
             \App\Http\Requests\EtimXchange\EtimFeatureUpdateRequest::class
         );

@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\Etim\ModellingClassPortController
+ * @see \App\Http\Controllers\ModellingClassPortController
  */
 final class ModellingClassPortControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class ModellingClassPortControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ModellingClassPortController::class,
+            \App\Http\Controllers\ModellingClassPortController::class,
             'store',
             \App\Http\Requests\Etim\ModellingClassPortStoreRequest::class
         );
@@ -106,7 +106,7 @@ final class ModellingClassPortControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ModellingClassPortController::class,
+            \App\Http\Controllers\ModellingClassPortController::class,
             'update',
             \App\Http\Requests\Etim\ModellingClassPortUpdateRequest::class
         );

@@ -1,4 +1,17 @@
 models:
+    Etim\Release:
+      id: id
+      description: string:20
+      relationships:
+        hasMany: ClassRelease
+
+    Etim\ClassRelease:
+      id: id
+      product_class_id: bigInteger, foreign:ProductClass.id
+      release_id: bigInteger, foreign:Release.id
+      relationships:
+        belongsTo: ProductClass, Release
+
     Etim\Group:
         id: char:8 primary
         description: string:80 index
@@ -23,14 +36,14 @@ models:
 
     Etim\Unit:
         id: char:8 primary
-        description: varchar(80) unique
-        abbreviation: varchar(25)unique
+        description: string:80 unique
+        abbreviation: string:25 unique
         deprecated: boolean
         relationships:
           hasMany: UnitTranslation, ClassFeature, ModellingClassFeature
 
     Etim\ProductClass:
-        id: id
+        id: id foreign:ClassRelease.product_class_id,
         class_id: char:8 index
         status: enum:2,3,5,9
         version: tinyInteger unsigned
@@ -39,10 +52,9 @@ models:
         revision_date: date nullable
         group_id: char:8 foreign:EtimGroup.id
         description: string:80 index
-        releases: json
         changecode: string:80
         relationships:
-          hasMany: ClassFeature, Translation, Synonym,
+          hasMany: ClassFeature, Translation, Synonym, ClassRelease
           belongsTo: Group
 
     Etim\ModellingGroup:
@@ -77,7 +89,6 @@ models:
         unit_id: char:8 nullable foreign:Unit.id
         imp_unit_id: char:8 nullable foreign:Unit.id
         changecode: string:80 nullable
-        releases: json nullable
         relationships:
           hasMany: ClassFeature, ModellingClassFeature, Translation
 
@@ -89,7 +100,6 @@ models:
         feature_id: char:8 index foreign:ModellingClassFeature.feature_id
         value_id: char:8 index foreign:Value.id
         changecode: string:80 nullable
-        releases: json nullable
         relationships:
           belongsTo: ClassFeature, ModellingClassFeature
 

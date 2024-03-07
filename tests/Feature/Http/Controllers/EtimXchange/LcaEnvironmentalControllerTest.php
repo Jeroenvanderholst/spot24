@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\LcaEnvironmentalController
+ * @see \App\Http\Controllers\LcaEnvironmentalController
  */
 final class LcaEnvironmentalControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class LcaEnvironmentalControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\LcaEnvironmentalController::class,
+            \App\Http\Controllers\LcaEnvironmentalController::class,
             'store',
             \App\Http\Requests\EtimXchange\LcaEnvironmentalStoreRequest::class
         );
@@ -117,7 +117,7 @@ final class LcaEnvironmentalControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\LcaEnvironmentalController::class,
+            \App\Http\Controllers\LcaEnvironmentalController::class,
             'update',
             \App\Http\Requests\EtimXchange\LcaEnvironmentalUpdateRequest::class
         );

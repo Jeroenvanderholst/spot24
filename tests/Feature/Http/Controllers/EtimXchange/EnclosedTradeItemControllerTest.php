@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\EnclosedTradeItemController
+ * @see \App\Http\Controllers\EnclosedTradeItemController
  */
 final class EnclosedTradeItemControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class EnclosedTradeItemControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EnclosedTradeItemController::class,
+            \App\Http\Controllers\EnclosedTradeItemController::class,
             'store',
             \App\Http\Requests\EtimXchange\EnclosedTradeItemStoreRequest::class
         );
@@ -106,7 +106,7 @@ final class EnclosedTradeItemControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EnclosedTradeItemController::class,
+            \App\Http\Controllers\EnclosedTradeItemController::class,
             'update',
             \App\Http\Requests\EtimXchange\EnclosedTradeItemUpdateRequest::class
         );

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->char('imp_unit_id', 8)->nullable();
             $table->foreign('imp_unit_id')->references('unit_id')->on('units');
             $table->enum('changecode', ['Unchanged','Changed','New','Deleted'])->nullable();
-            $table->json('releases')->nullable();
             $table->timestamps();
         });
 

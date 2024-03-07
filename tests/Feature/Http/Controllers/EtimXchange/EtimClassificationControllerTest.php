@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\EtimXchange;
 
-use App\Models\EtimClassification;
+use App\ModelsClassification;
 use App\Models\ModellingClass;
 use App\Models\ProductClass;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,7 +12,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\EtimClassificationController
+ * @see \App\Http\Controllers\EtimClassificationController
  */
 final class EtimClassificationControllerTest extends TestCase
 {
@@ -45,7 +45,7 @@ final class EtimClassificationControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimClassificationController::class,
+            \App\Http\Controllers\EtimClassificationController::class,
             'store',
             \App\Http\Requests\EtimXchange\EtimClassificationStoreRequest::class
         );
@@ -117,7 +117,7 @@ final class EtimClassificationControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimClassificationController::class,
+            \App\Http\Controllers\EtimClassificationController::class,
             'update',
             \App\Http\Requests\EtimXchange\EtimClassificationUpdateRequest::class
         );

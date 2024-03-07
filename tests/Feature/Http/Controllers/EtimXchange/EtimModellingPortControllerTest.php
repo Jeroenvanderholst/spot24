@@ -2,8 +2,8 @@
 
 namespace Tests\Feature\Http\Controllers\EtimXchange;
 
-use App\Models\EtimClassification;
-use App\Models\EtimModellingPort;
+use App\ModelsClassification;
+use App\ModelsModellingPort;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\EtimModellingPortController
+ * @see \App\Http\Controllers\EtimModellingPortController
  */
 final class EtimModellingPortControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class EtimModellingPortControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimModellingPortController::class,
+            \App\Http\Controllers\EtimModellingPortController::class,
             'store',
             \App\Http\Requests\EtimXchange\EtimModellingPortStoreRequest::class
         );
@@ -112,7 +112,7 @@ final class EtimModellingPortControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimModellingPortController::class,
+            \App\Http\Controllers\EtimModellingPortController::class,
             'update',
             \App\Http\Requests\EtimXchange\EtimModellingPortUpdateRequest::class
         );

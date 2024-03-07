@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\LcaDeclarationController
+ * @see \App\Http\Controllers\LcaDeclarationController
  */
 final class LcaDeclarationControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class LcaDeclarationControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\LcaDeclarationController::class,
+            \App\Http\Controllers\LcaDeclarationController::class,
             'store',
             \App\Http\Requests\EtimXchange\LcaDeclarationStoreRequest::class
         );
@@ -106,7 +106,7 @@ final class LcaDeclarationControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\LcaDeclarationController::class,
+            \App\Http\Controllers\LcaDeclarationController::class,
             'update',
             \App\Http\Requests\EtimXchange\LcaDeclarationUpdateRequest::class
         );

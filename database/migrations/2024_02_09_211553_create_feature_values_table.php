@@ -22,7 +22,6 @@ return new class extends Migration
             $table->char('value_id', 8)->index();
             $table->foreign('value_id')->references('id')->on('values');
             $table->string('changecode', 80)->nullable();
-            $table->json('releases')->nullable();
             $table->timestamps();
         });
 

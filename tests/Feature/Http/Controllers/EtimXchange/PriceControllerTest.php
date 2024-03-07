@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\PriceController
+ * @see \App\Http\Controllers\PriceController
  */
 final class PriceControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class PriceControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\PriceController::class,
+            \App\Http\Controllers\PriceController::class,
             'store',
             \App\Http\Requests\EtimXchange\PriceStoreRequest::class
         );
@@ -108,7 +108,7 @@ final class PriceControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\PriceController::class,
+            \App\Http\Controllers\PriceController::class,
             'update',
             \App\Http\Requests\EtimXchange\PriceUpdateRequest::class
         );

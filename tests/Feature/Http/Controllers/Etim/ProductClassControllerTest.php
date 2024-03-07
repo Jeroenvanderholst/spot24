@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\Etim\ProductClassController
+ * @see \App\Http\Controllers\ProductClassController
  */
 final class ProductClassControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class ProductClassControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ProductClassController::class,
+            \App\Http\Controllers\ProductClassController::class,
             'store',
             \App\Http\Requests\Etim\ProductClassStoreRequest::class
         );
@@ -118,7 +118,7 @@ final class ProductClassControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ProductClassController::class,
+            \App\Http\Controllers\ProductClassController::class,
             'update',
             \App\Http\Requests\Etim\ProductClassUpdateRequest::class
         );

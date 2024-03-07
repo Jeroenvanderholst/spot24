@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\ItemLogisticDetailController
+ * @see \App\Http\Controllers\ItemLogisticDetailController
  */
 final class ItemLogisticDetailControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class ItemLogisticDetailControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\ItemLogisticDetailController::class,
+            \App\Http\Controllers\ItemLogisticDetailController::class,
             'store',
             \App\Http\Requests\EtimXchange\ItemLogisticDetailStoreRequest::class
         );
@@ -102,7 +102,7 @@ final class ItemLogisticDetailControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\ItemLogisticDetailController::class,
+            \App\Http\Controllers\ItemLogisticDetailController::class,
             'update',
             \App\Http\Requests\EtimXchange\ItemLogisticDetailUpdateRequest::class
         );

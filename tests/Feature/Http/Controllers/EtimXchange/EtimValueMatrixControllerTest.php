@@ -2,7 +2,7 @@
 
 namespace Tests\Feature\Http\Controllers\EtimXchange;
 
-use App\Models\EtimValueMatrix;
+use App\ModelsValueMatrix;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use JMac\Testing\Traits\AdditionalAssertions;
@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\EtimValueMatrixController
+ * @see \App\Http\Controllers\EtimValueMatrixController
  */
 final class EtimValueMatrixControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class EtimValueMatrixControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimValueMatrixController::class,
+            \App\Http\Controllers\EtimValueMatrixController::class,
             'store',
             \App\Http\Requests\EtimXchange\EtimValueMatrixStoreRequest::class
         );
@@ -111,7 +111,7 @@ final class EtimValueMatrixControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\EtimValueMatrixController::class,
+            \App\Http\Controllers\EtimValueMatrixController::class,
             'update',
             \App\Http\Requests\EtimXchange\EtimValueMatrixUpdateRequest::class
         );

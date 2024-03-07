@@ -29,26 +29,28 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
             return [
                 Menusection::dashboard(Main::class)->icon('view-grid'),
                 Menusection::Make('ETIM Entities', [
-                    MenuItem::resource(\App\Nova\Etim\Group::class),
-                    MenuItem::resource(\App\Nova\Etim\ProductClass::class),
-                    MenuItem::resource(\App\Nova\Etim\ModellingClass::class),
-                    MenuItem::resource(\App\Nova\Etim\Feature::class),
-                    MenuItem::resource(\App\Nova\Etim\Value::class),
-                    MenuItem::resource(\App\Nova\Etim\Unit::class),
+                    MenuItem::resource(\App\Nova\Group::class),
+                    MenuItem::resource(\App\Nova\ProductClass::class),
+                    MenuItem::resource(\App\Nova\ModellingClass::class),
+                    MenuItem::resource(\App\Nova\Feature::class),
+                    MenuItem::resource(\App\Nova\Value::class),
+                    MenuItem::resource(\App\Nova\Unit::class),
+                    MenuItem::resource(\App\Nova\Release::class),
                 ])->collapsable(),
 
                 Menusection::Make('ETIM Translations',[
-                    MenuItem::resource(\App\Nova\Etim\EtimLanguage::class),
-                    MenuItem::resource(\App\Nova\Etim\Translation::class),
-                    MenuItem::resource(\App\Nova\Etim\Synonym::class),
-                    MenuItem::resource(\App\Nova\Etim\UnitTranslation::class),                    
+                    MenuItem::resource(\App\Nova\EtimLanguage::class),
+                    MenuItem::resource(\App\Nova\Translation::class),
+                    MenuItem::resource(\App\Nova\Synonym::class),
+                    MenuItem::resource(\App\Nova\UnitTranslation::class),                    
                 ])->collapsable(),
 
                 Menusection::Make('ETIM Relations tables', [
-                    MenuItem::resource(\App\Nova\Etim\ClassFeature::class),
-                    MenuItem::resource(\App\Nova\Etim\FeatureValue::class),
-                    MenuItem::resource(\App\Nova\Etim\ModellingClassFeature::class),
-                    MenuItem::resource(\App\Nova\Etim\ModellingClassPort::class),                    
+                    MenuItem::resource(\App\Nova\ClassFeature::class),
+                    MenuItem::resource(\App\Nova\FeatureValue::class),
+                    MenuItem::resource(\App\Nova\ModellingClassFeature::class),
+                    MenuItem::resource(\App\Nova\ModellingClassPort::class),
+                    MenuItem::resource(\App\Nova\ClassRelease::class),             
                 ])->collapsable(),
                 ];
 

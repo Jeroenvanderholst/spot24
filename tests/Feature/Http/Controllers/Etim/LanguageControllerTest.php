@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\Etim\LanguageController
+ * @see \App\Http\Controllers\LanguageController
  */
 final class LanguageControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class LanguageControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\LanguageController::class,
+            \App\Http\Controllers\LanguageController::class,
             'store',
             \App\Http\Requests\Etim\LanguageStoreRequest::class
         );
@@ -99,7 +99,7 @@ final class LanguageControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\LanguageController::class,
+            \App\Http\Controllers\LanguageController::class,
             'update',
             \App\Http\Requests\Etim\LanguageUpdateRequest::class
         );

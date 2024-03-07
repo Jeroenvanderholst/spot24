@@ -24,7 +24,6 @@ return new class extends Migration
             $table->char('group_id', 8);
             $table->foreign('group_id')->references('id')->on('groups');
             $table->string('description', 80)->index();
-            $table->json('releases');
             $table->string('changecode', 80);
             $table->timestamps();
         });

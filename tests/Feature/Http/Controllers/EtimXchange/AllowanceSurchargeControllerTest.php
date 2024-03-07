@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\AllowanceSurchargeController
+ * @see \App\Http\Controllers\AllowanceSurchargeController
  */
 final class AllowanceSurchargeControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class AllowanceSurchargeControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\AllowanceSurchargeController::class,
+            \App\Http\Controllers\AllowanceSurchargeController::class,
             'store',
             \App\Http\Requests\EtimXchange\AllowanceSurchargeStoreRequest::class
         );
@@ -109,7 +109,7 @@ final class AllowanceSurchargeControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\AllowanceSurchargeController::class,
+            \App\Http\Controllers\AllowanceSurchargeController::class,
             'update',
             \App\Http\Requests\EtimXchange\AllowanceSurchargeUpdateRequest::class
         );

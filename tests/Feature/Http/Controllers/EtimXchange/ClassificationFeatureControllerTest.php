@@ -11,7 +11,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\EtimXchange\ClassificationFeatureController
+ * @see \App\Http\Controllers\ClassificationFeatureController
  */
 final class ClassificationFeatureControllerTest extends TestCase
 {
@@ -44,7 +44,7 @@ final class ClassificationFeatureControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\ClassificationFeatureController::class,
+            \App\Http\Controllers\ClassificationFeatureController::class,
             'store',
             \App\Http\Requests\EtimXchange\ClassificationFeatureStoreRequest::class
         );
@@ -106,7 +106,7 @@ final class ClassificationFeatureControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\EtimXchange\ClassificationFeatureController::class,
+            \App\Http\Controllers\ClassificationFeatureController::class,
             'update',
             \App\Http\Requests\EtimXchange\ClassificationFeatureUpdateRequest::class
         );

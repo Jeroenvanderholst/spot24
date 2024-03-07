@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
     {
         User::factory()->count(5)->create();
         User::create([
-            'name' => 'Jeroen van der Hoslt',
+            'name' => 'Jeroen van der Holst',
             'email' => 'jeroen@vanderholst.net',
             'email_verified_at' => now(),
             'password' => password_hash('jh1971@TEST', PASSWORD_BCRYPT ),

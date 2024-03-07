@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\Etim\ModellingGroupController
+ * @see \App\Http\Controllers\ModellingGroupController
  */
 final class ModellingGroupControllerTest extends TestCase
 {
@@ -43,7 +43,7 @@ final class ModellingGroupControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ModellingGroupController::class,
+            \App\Http\Controllers\ModellingGroupController::class,
             'store',
             \App\Http\Requests\Etim\ModellingGroupStoreRequest::class
         );
@@ -102,7 +102,7 @@ final class ModellingGroupControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\ModellingGroupController::class,
+            \App\Http\Controllers\ModellingGroupController::class,
             'update',
             \App\Http\Requests\Etim\ModellingGroupUpdateRequest::class
         );

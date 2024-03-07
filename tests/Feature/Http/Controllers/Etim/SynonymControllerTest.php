@@ -13,7 +13,7 @@ use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 /**
- * @see \App\Http\Controllers\Etim\SynonymController
+ * @see \App\Http\Controllers\SynonymController
  */
 final class SynonymControllerTest extends TestCase
 {
@@ -46,7 +46,7 @@ final class SynonymControllerTest extends TestCase
     public function store_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\SynonymController::class,
+            \App\Http\Controllers\SynonymController::class,
             'store',
             \App\Http\Requests\Etim\SynonymStoreRequest::class
         );
@@ -111,7 +111,7 @@ final class SynonymControllerTest extends TestCase
     public function update_uses_form_request_validation(): void
     {
         $this->assertActionUsesFormRequest(
-            \App\Http\Controllers\Etim\SynonymController::class,
+            \App\Http\Controllers\SynonymController::class,
             'update',
             \App\Http\Requests\Etim\SynonymUpdateRequest::class
         );
