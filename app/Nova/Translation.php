@@ -4,7 +4,10 @@ namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphTo;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Translation extends Resource
@@ -30,6 +33,8 @@ class Translation extends Resource
      */
     public static $search = [
         'id',
+        'entity_id',
+        'description',
     ];
 
     /**
@@ -41,7 +46,28 @@ class Translation extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()->hideFromIndex(),
+            Text::make('Language', 'language_id')->sortable()->filterable(),
+            Text::make('Description')->sortable()->filterable(),
+            Text::make('ID','translatable_id')->sortable()->filterable(),
+            MorphTo::make('translatable')->types([
+                ProductClass::class,
+                ModellingClass::class,
+                Feature::class,
+                Value::class,
+                Group::class,
+                ModellingGroup::class,
+
+
+            ]),
+
+            // BelongsTo::make('ProductClass'),
+            // BelongsTo::make('ModellingClass'),
+            // BelongsTo::make('Feature'),
+            // BelongsTo::make('Value'),
+            // BelongsTo::make('Group'),
+            // BelongsTo::make('ModellingGroup'),
+
         ];
     }
 

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class ModellingGroup extends Model
 {
@@ -37,8 +38,8 @@ class ModellingGroup extends Model
         return $this->hasMany(ModellingClass::class);
     }
 
-    public function translations(): HasMany
+    public function translations(): MorphMany
     {
-        return $this->hasMany(Translation::class);
+        return $this->morphMany(Translation::class, 'translatable', null ,'translatable_id', 'id');
     }
 }

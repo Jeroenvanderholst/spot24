@@ -24,8 +24,9 @@ class SynonymFactory extends Factory
      */
     public function definition(): array
     {
-        $entities = ProductClass::pluck('class_id');
-        $entities = ModellingClass::pluck('modelling_class_id');
+        $ec = ProductClass::pluck('class_id');
+        $mc = ModellingClass::pluck('modelling_class_id');
+        $entities = $ec->merge($mc);
         
 
         return [

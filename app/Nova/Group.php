@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -61,7 +62,7 @@ class Group extends Resource
 
             HasMany::make('ProductClass'),
 
-            HasMany::make('Translation'),
+            MorphMany::make('Translations', 'translatable'),
             
         ];
     }

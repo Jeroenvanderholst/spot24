@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Feature extends Model
 {
@@ -44,9 +45,9 @@ class Feature extends Model
         return $this->hasMany(ModellingClassFeature::class);
     }
 
-    public function translations(): HasMany
+    public function translations(): MorphMany
     {
-        return $this->hasMany(Translation::class);
+        return $this->morphMany(Translation::class, 'translatable', null ,'translatable_id', 'id');
     }
 
     public function id(): BelongsTo

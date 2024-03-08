@@ -15,7 +15,8 @@ return new class extends Migration
 
         Schema::create('translations', function (Blueprint $table) {
             $table->id();
-            $table->char('entity_id', 8)->index();
+            $table->char('translatable_id', 8)->index();
+            $table->string('translatable_type',80);
             $table->char('language_id', 5)->index();
             $table->foreign('language_id')->references('id')->on('etim_languages');
             $table->string('description', 80);

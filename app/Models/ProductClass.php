@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class ProductClass extends Model
 {
@@ -46,14 +47,14 @@ class ProductClass extends Model
         return $this->hasMany(ClassFeature::class);
     }
 
-    public function translations(): HasMany
+    public function translations(): MorphMany
     {
-        return $this->hasMany(Translation::class);
+        return $this->morphMany(Translation::class, 'translatable', null, 'translatable_id', 'class_id');
     }
 
     public function synonyms(): HasMany
     {
-        return $this->hasMany(Synonym::class);
+        return $this->hasMany(Synonym::class, 'entity_id', 'class_id');
     }
 
     public function group(): BelongsTo

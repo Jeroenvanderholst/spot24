@@ -9,8 +9,10 @@ use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Date;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\KeyValue;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -29,7 +31,7 @@ class ProductClass extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'class_id';
 
     /**
      * The columns that should be searched.
@@ -58,6 +60,8 @@ class ProductClass extends Resource
             Number::make('Revision')->hideFromIndex(),
             Date::make('Revision Date')->hideFromIndex(),
             BelongsTo::make('Group')->sortable()->filterable(),
+            HasMany::make('Synonyms'),
+            MorphMany::make('Translations'),
         ];
         
     }

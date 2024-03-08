@@ -5,6 +5,7 @@ namespace App\Nova;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Synonym extends Resource
@@ -42,6 +43,9 @@ class Synonym extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Class ID', 'entity_id'),
+            Text::make('Language', 'language_id'),
+            Text::make('Description'),
         ];
     }
 

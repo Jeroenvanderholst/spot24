@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Translation extends Model
 {
@@ -16,7 +17,8 @@ class Translation extends Model
      * @var array
      */
     protected $fillable = [
-        'entity_id',
+        'translatable_id',
+        'translatable_type',
         'language_id',
         'description',
     ];
@@ -30,38 +32,45 @@ class Translation extends Model
 
     ];
 
-    public function productClass(): BelongsTo
+    public function translatable(): MorphTo
     {
-        return $this->belongsTo(ProductClass::class);
+        return $this->morphTo(); 
     }
 
-    public function feature(): BelongsTo
-    {
-        return $this->belongsTo(Feature::class);
-    }
+    // public function productClass(): BelongsTo
+    // {
+    //     return $this->belongsTo(ProductClass::class, 'entity_id', 'class_id');
+    // }
 
-    public function group(): BelongsTo
-    {
-        return $this->belongsTo(Group::class);
-    }
+    // public function feature(): BelongsTo
+    // {
+    //     return $this->belongsTo(Feature::class, 'entity_id', 'id');
+    // }
 
-    public function language(): BelongsTo
-    {
-        return $this->belongsTo(EtimLanguage::class);
-    }
+    // public function group(): BelongsTo
+    // {
+    //     return $this->belongsTo(Group::class);
+    // }
 
-    public function modellingClass(): BelongsTo
-    {
-        return $this->belongsTo(ModellingClass::class);
-    }
+    // public function modellingGroup(): BelongsTo
+    // {
+    //     return $this->belongsTo(ModellingGroup::class);
+    // }
 
-    public function value(): BelongsTo
-    {
-        return $this->belongsTo(Value::class);
-    }
 
-    public function id(): BelongsTo
-    {
-        return $this->belongsTo(ProductClass::class);
-    }
+    // public function language(): BelongsTo
+    // {
+    //     return $this->belongsTo(EtimLanguage::class);
+    // }
+
+    // public function modellingClass(): BelongsTo
+    // {
+    //     return $this->belongsTo(ModellingClass::class);
+    // }
+
+    // public function value(): BelongsTo
+    // {
+    //     return $this->belongsTo(Value::class);
+    // }
+
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class ModellingClass extends Model
 {
@@ -50,9 +51,9 @@ class ModellingClass extends Model
         return $this->hasMany(ModellingClassFeature::class);
     }
 
-    public function translations(): HasMany
+    public function translations(): MorphMany
     {
-        return $this->hasMany(Translation::class);
+        return $this->morphMany(Translation::class, 'translatable', null, 'entity_id', 'modelling_class_id');
     }
 
     public function synonyms(): HasMany

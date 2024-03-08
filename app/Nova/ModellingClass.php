@@ -105,7 +105,7 @@ class ModellingClass extends Resource
             
             HasMany::make('Synonyms'),
 
-            MorphMany::make('Descriptions', 'translations', Translation::class),
+            MorphMany::make('Translations', 'translatable'),
 
 
             
