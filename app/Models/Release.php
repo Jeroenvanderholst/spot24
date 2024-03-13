@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
@@ -36,8 +37,13 @@ class Release extends Model
     //     return $this->hasMany(ClassRelease::class);
     // }
 
-    public function productClass(): HasManyThrough
+    // public function productClass(): HasManyThrough
+    // {
+    //     return $this->hasManyThrough(ProductClass::class, ClassRelease::class);
+    // }
+
+    public function productClass(): BelongsToMany
     {
-        return $this->hasManyThrough(ProductClass::class, ClassRelease::class);
+        return $this->belongsToMany(ProductClass::class, 'class_releases');
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class ClassFeature extends Model
 {
@@ -34,9 +35,9 @@ class ClassFeature extends Model
         'sort_nr' => 'integer',
     ];
 
-    public function classFeatures(): HasMany
+    public function featureValues(): HasMany
     {
-        return $this->hasMany(ClassFeature::class);
+        return $this->hasMany(FeatureValue::class);
     }
 
     public function modellingClassFeatures(): HasMany
@@ -44,9 +45,9 @@ class ClassFeature extends Model
         return $this->hasMany(ModellingClassFeature::class);
     }
 
-    public function translations(): HasMany
+    public function translations(): MorphMany
     {
-        return $this->hasMany(Translation::class);
+        return $this->morphMany(Translation::class, 'translatable', null ,'translatable_id', 'id');
     }
 
     public function class(): BelongsTo

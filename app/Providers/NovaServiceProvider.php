@@ -31,6 +31,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 Menusection::Make('ETIM Entities', [
                     MenuItem::resource(\App\Nova\Group::class),
                     MenuItem::resource(\App\Nova\ProductClass::class),
+                    MenuItem::resource(\App\Nova\ModellingGroup::class),
                     MenuItem::resource(\App\Nova\ModellingClass::class),
                     MenuItem::resource(\App\Nova\Feature::class),
                     MenuItem::resource(\App\Nova\Value::class),

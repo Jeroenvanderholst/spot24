@@ -37,40 +37,4 @@ class Translation extends Model
         return $this->morphTo(); 
     }
 
-    // public function productClass(): BelongsTo
-    // {
-    //     return $this->belongsTo(ProductClass::class, 'entity_id', 'class_id');
-    // }
-
-    // public function feature(): BelongsTo
-    // {
-    //     return $this->belongsTo(Feature::class, 'entity_id', 'id');
-    // }
-
-    // public function group(): BelongsTo
-    // {
-    //     return $this->belongsTo(Group::class);
-    // }
-
-    // public function modellingGroup(): BelongsTo
-    // {
-    //     return $this->belongsTo(ModellingGroup::class);
-    // }
-
-
-    // public function language(): BelongsTo
-    // {
-    //     return $this->belongsTo(EtimLanguage::class);
-    // }
-
-    // public function modellingClass(): BelongsTo
-    // {
-    //     return $this->belongsTo(ModellingClass::class);
-    // }
-
-    // public function value(): BelongsTo
-    // {
-    //     return $this->belongsTo(Value::class);
-    // }
-
 }

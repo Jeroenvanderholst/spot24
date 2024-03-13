@@ -4,7 +4,11 @@ namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Value extends Resource
@@ -41,7 +45,16 @@ class Value extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            ID::make()->sortable()->readonly(),
+            Text::make('Description')->sortable()->readonly(),
+            Boolean::make('Deprecated')
+            ->filterable()
+            ->hideFromIndex()
+            ->readonly(),
+            MorphMany::make('Translations'),
+            BelongsToMany::make('FeatureValues'),
+
+
         ];
     }
 

@@ -9,6 +9,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Boolean;
 use Illuminate\Validation\Rules\Enum;
+use Laravel\Nova\Fields\MorphMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Feature extends Resource
@@ -50,6 +51,7 @@ class Feature extends Resource
             Text::make('Description')->sortable()->readonly(),
             Text::make('Type')->filterable()->readonly(),
             Boolean::make('Deprecated')->filterable()->readonly()->hideFromIndex(),
+            MorphMany::make('Translations')
             
             
             

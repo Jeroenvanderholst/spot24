@@ -4,7 +4,7 @@ namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\HasManyThrough;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -45,7 +45,7 @@ class Release extends Resource
         return [
             ID::make()->sortable()->hideFromIndex(),
             Text::make('description')->sortable(),
-            HasManyThrough::make('ProductClass'),
+            BelongsToMany::make('ProductClass'),
         ];
     }
 

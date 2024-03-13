@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -33,9 +34,9 @@ class Value extends Model
         'deprecated' => 'boolean',
     ];
 
-    public function featureValues(): HasMany
+    public function featureValues(): belongsToMany
     {
-        return $this->hasMany(FeatureValue::class);
+        return $this->belongsToMany(FeatureValue::class, 'feature_values');
     }
 
     public function translations(): MorphMany

@@ -6,6 +6,7 @@ use App\Nova\Repeater\Release;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\BelongsToMany;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Date;
@@ -62,6 +63,7 @@ class ProductClass extends Resource
             BelongsTo::make('Group')->sortable()->filterable(),
             HasMany::make('Synonyms'),
             MorphMany::make('Translations'),
+            BelongsToMany::make('Release'),
         ];
         
     }

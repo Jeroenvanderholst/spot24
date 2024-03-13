@@ -51,6 +51,9 @@ class ModellingClass extends Resource
     public function fields(NovaRequest $request)
     {
         return [
+
+            HasMany::make('Synonyms'),
+            
             ID::make()
                 ->sortable()
                 ->hideFromIndex(),
@@ -103,9 +106,9 @@ class ModellingClass extends Resource
                 ->filterable()
                 ->hideFromIndex(),
             
-            HasMany::make('Synonyms'),
 
-            MorphMany::make('Translations', 'translatable'),
+
+            MorphMany::make('Translations'),
 
 
             

@@ -53,12 +53,12 @@ class ModellingClass extends Model
 
     public function translations(): MorphMany
     {
-        return $this->morphMany(Translation::class, 'translatable', null, 'entity_id', 'modelling_class_id');
+        return $this->morphMany(Translation::class, 'translatable', null, 'translatable_id', 'id');
     }
 
     public function synonyms(): HasMany
     {
-        return $this->hasMany(Synonym::class);
+        return $this->hasMany(Synonym::class, 'entity_id', 'modelling_class_id');
     }
 
     public function modellingClassPort(): HasMany

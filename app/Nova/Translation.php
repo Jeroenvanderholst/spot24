@@ -33,7 +33,8 @@ class Translation extends Resource
      */
     public static $search = [
         'id',
-        'entity_id',
+        'translatable_id',
+        'translatable_type',
         'description',
     ];
 
@@ -49,7 +50,6 @@ class Translation extends Resource
             ID::make()->sortable()->hideFromIndex(),
             Text::make('Language', 'language_id')->sortable()->filterable(),
             Text::make('Description')->sortable()->filterable(),
-            Text::make('ID','translatable_id')->sortable()->filterable(),
             MorphTo::make('translatable')->types([
                 ProductClass::class,
                 ModellingClass::class,
@@ -57,16 +57,7 @@ class Translation extends Resource
                 Value::class,
                 Group::class,
                 ModellingGroup::class,
-
-
             ]),
-
-            // BelongsTo::make('ProductClass'),
-            // BelongsTo::make('ModellingClass'),
-            // BelongsTo::make('Feature'),
-            // BelongsTo::make('Value'),
-            // BelongsTo::make('Group'),
-            // BelongsTo::make('ModellingGroup'),
 
         ];
     }

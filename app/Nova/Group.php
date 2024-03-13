@@ -47,9 +47,8 @@ class Group extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->hideFromIndex(),
-
-            Text::make('ClassId'),
+            ID::make()
+            ->sortable(),
 
             Text::make('Description')
             ->sortable()
@@ -62,7 +61,7 @@ class Group extends Resource
 
             HasMany::make('ProductClass'),
 
-            MorphMany::make('Translations', 'translatable'),
+            MorphMany::make('Translations'),
             
         ];
     }

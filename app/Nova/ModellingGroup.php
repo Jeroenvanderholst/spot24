@@ -4,7 +4,11 @@ namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ModellingGroup extends Resource
@@ -42,6 +46,16 @@ class ModellingGroup extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Description')->sortable(),
+            Boolean::make('Deprecated')
+            ->filterable()
+            ->hideFromIndex()
+            ->readonly(),
+
+            HasMany::make('ModellingClass'),
+
+            MorphMany::make('Translations', 'translatable'),
+            
         ];
     }
 
