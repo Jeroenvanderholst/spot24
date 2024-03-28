@@ -14,45 +14,36 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return Inertia::render('Dashboard', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-*/
 
 Route::redirect('/', '/home');
 
-Route::get('/home', function () {
-    return Inertia::render('Home');
- })->middleware(['auth', 'verified'])->name('home');
 
-
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-
-Route::get('/products', function () {
-    return Inertia::render('Products');
-})->middleware(['auth', 'verified'])->name('products');
-
-//  Route::get('/etim', function () {
-//      return Inertia::render('Etim');
-//  })->middleware(['auth', 'verified'])->name('etim');
-
-Route::resource('etim/classification', App\Http\Controllers\EtimClassificationController::class)->middleware('auth', 'verified', 'etimapi');
+// Route::resource('etim/classification', App\Http\Controllers\EtimClassificationController::class)
+//     ->middleware('auth', 'verified', 'etimapi');
 
 Route::middleware(['auth', 'verified'])->group(function () {
+
+    Route::get('/home', function () {
+        return Inertia::render('Home');
+    })->name('home');
+
+    Route::get('/products', function () {
+        return Inertia::render('Products');
+    })->name('products');
+
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::resource('etim/classification', App\Http\Controllers\EtimClassificationController::class)
+     ->middleware('etimapi');
+
     //profile controllers
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
 
     //ETIM controllers
     // Route::resource('etim/group', App\Http\Controllers\GroupController::class);

@@ -17,25 +17,17 @@
 
 <script>
     export default {
-
+    
     props: {
-        unitCount: null,
-        valueCount: null,
-        featureCount: null,
-        productClassCount: null,
-        groupCount: null,
-        modellingClassCount: null,
-        translationCount: null,
-        synonymCount: null,
+        unitCount: Number,
+        valueCount: Number,
+        featureCount: Number,
+        productClassCount: Number,
+        groupCount: Number,
+        modellingClassCount: Number,
+        translationCount: Number,
+        synonymCount: Number,
         },
-
-    data () {
-        
-            return {
-
-            }
-        },
-
 
           
     }

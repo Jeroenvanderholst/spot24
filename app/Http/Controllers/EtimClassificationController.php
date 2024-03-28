@@ -19,14 +19,16 @@ class EtimClassificationController extends Controller
         $etimClassifications = EtimClassification::all();
 
         // In a controller method, after performing an action
-        request()->session()->flash('success', 'Your message was sent successfully yeay!');
+        //request()->session()->flash('success', 'Your message was sent successfully yeay!');
         // or for an error message
-        request()->session()->flash('error', 'There was a problem sending your message.');
+        //request()->session()->flash('error', 'There was a problem sending your message.');
 
 
         return Inertia::render('Etim/Classification/Index', [
+            'etimStats' => $this->getEtimStats(), 
             'etim_connection' => Session::get('etim_connection'),
             'classifications' => $etimClassifications
+
         ]);
 
 
@@ -79,14 +81,14 @@ class EtimClassificationController extends Controller
         $etimStats = [
             // 'versionDescription' => $version->description,
             // 'versionDate' => $version->date,
-            'unitCount' => DB::table('etim_units')->where('language', '=', 'EN')->count(),
-            'valueCount' => DB::table('etim_values')->count(),
-            'featureCount' => DB::table('etim_features')->count(),
-            'groupCount' => DB::table('etim_groups')->count(),
-            'productClassCount' => DB::table('etim_product_classes')->count(),
-            'modellingClassCount' => DB::table('etim_modelling_classes')->count(),
-            'translationCount' => DB::table('etim_translations')->count(),
-            'synonymCount' => DB::table('etim_synonyms')->count(),
+            'unitCount' => \App\Models\Unit::count(),
+            'valueCount' => \App\Models\Value::count(),
+            'featureCount' => \App\Models\Feature::count(),
+            'groupCount' => \App\Models\Group::count(),
+            'productClassCount' => \App\Models\ProductClass::count(),
+            'modellingClassCount' => \App\Models\ModellingClass::count(),
+            'translationCount' => \App\Models\Translation::count(),
+            'synonymCount' => \App\Models\Synonym::count(),
         ];
 
         return $etimStats; 

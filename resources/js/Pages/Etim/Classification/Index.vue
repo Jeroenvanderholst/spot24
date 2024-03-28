@@ -3,6 +3,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import EtimStats from '@/Components/EtimStats.vue';
 import { Head } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3';
+
 </script>
 
 <template>
@@ -30,17 +31,20 @@ import { Link } from '@inertiajs/vue3';
             </div>                        
         </div>
 
-        <EtimStats class="col-span-3 lg:col-span-1" 
-                :unitCount="EtimStats.unitCount"
-                :valueCount="EtimStats.valueCount"
-                :featureCount="EtimStats.featureCount"
-                :productClassCount="EtimStats.productClassCount"
-                :groupCount="EtimStats.groupCount"
-                :modellingClassCount="EtimStats.modellingClassCount"
-                :translationCount = "EtimStats.translationCount"
-                :synonymCount = "EtimStats.synonymCount"
-                />
+        <EtimStats class="" v-bind="etimStats"/>
 
 
     </AuthenticatedLayout>
 </template>
+
+<script>
+export default {
+    components : {
+        EtimStats
+    },
+
+  props: {
+    etimStats: Object
+  }
+}
+</script>
