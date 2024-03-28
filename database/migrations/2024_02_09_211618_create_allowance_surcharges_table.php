@@ -20,11 +20,11 @@ return new class extends Migration
             $table->enum('allowance_surcharge_indicator', ["ALLOWANCE","SURCHARGE"]);
             $table->date('allowance_surcharge_validity_date')->nullable();
             $table->enum('allowance_surcharge_type', ["AAT","ABL","ADO","ADR","ADZ","AEM","AEO","AEP","AEQ","CAI","DAE","DBD","FC","HD","INS","MAC","MAT","PAD","PI","QD","RAD","SH","TD","WHE","X21"]);
-            $table->unsignedDecimal('allowance_surcharge_amount', 15, 4)->nullable();
+            $table->decimal('allowance_surcharge_amount', 15, 4)->unsigned()->nullable();
             $table->unsignedTinyInteger('allowance_surcharge_sequence_number')->nullable();
-            $table->unsignedDecimal('allowance_surcharge_percentage', 6, 3)->nullable();
+            $table->decimal('allowance_surcharge_percentage', 6, 3)->unsigned()->nullable();
             $table->json('allowance_surcharge_description')->nullable();
-            $table->unsignedDecimal('allowance_surcharge_minimum_quantity', 16, 4)->nullable();
+            $table->decimal('allowance_surcharge_minimum_quantity', 16, 4)->unsigned()->nullable();
             $table->foreignId('price_id');
             $table->timestamps();
         });

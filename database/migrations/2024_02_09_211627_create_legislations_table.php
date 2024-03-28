@@ -31,8 +31,8 @@ return new class extends Migration
             $table->char('un_number', 4)->nullable();
             $table->json('hazard_class');
             $table->enum('adr_category', ["0","1","2","3","4"])->nullable();
-            $table->unsignedDecimal('net_weight_hazardous_substances', 16, 4)->nullable();
-            $table->unsignedDecimal('volume_hazardous_substances', 16, 4)->nullable();
+            $table->decimal('net_weight_hazardous_substances', 16, 4)->unsigned()->nullable();
+            $table->decimal('volume_hazardous_substances', 16, 4)->unsigned()->nullable();
             $table->json('un_shipping_name')->nullable();
             $table->enum('packing_group', ["I","II","III"])->nullable();
             $table->boolean('limited_quantities')->nullable();
@@ -48,8 +48,8 @@ return new class extends Migration
             $table->json('hazard_statement')->nullable();
             $table->json('precautionary_statement')->nullable();
             $table->boolean('li_ion_tested')->nullable();
-            $table->unsignedDecimal('lithium_amount', 16, 4)->nullable();
-            $table->unsignedDecimal('battery_energy', 16, 4)->nullable();
+            $table->decimal('lithium_amount', 16, 4)->unsigned()->nullable();
+            $table->decimal('battery_energy', 16, 4)->unsigned()->nullable();
             $table->boolean('nos274')->nullable();
             $table->json('hazard_trigger')->nullable();
             $table->timestamps();

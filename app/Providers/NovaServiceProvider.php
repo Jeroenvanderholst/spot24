@@ -47,7 +47,7 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
                 ])->collapsable(),
 
                 Menusection::Make('ETIM Relations tables', [
-                    MenuItem::resource(\App\Nova\ClassFeature::class),
+                    MenuItem::resource(\App\Nova\ProductClassFeature::class),
                     MenuItem::resource(\App\Nova\FeatureValue::class),
                     MenuItem::resource(\App\Nova\ModellingClassFeature::class),
                     MenuItem::resource(\App\Nova\ModellingClassPort::class),

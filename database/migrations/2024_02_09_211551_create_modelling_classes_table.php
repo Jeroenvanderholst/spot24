@@ -15,7 +15,7 @@ return new class extends Migration
 
         Schema::create('modelling_classes', function (Blueprint $table) {
             $table->id();
-            $table->char('modelling_class_id', 8)->index()->foreign('Synonym.entity_id');
+            $table->char('code', 8)->index()->foreign('Synonym.entity_id');
             $table->unsignedTinyInteger('version');
             $table->enum('status', ["2","3","5","9"]);
             $table->date('mutation_date')->nullable();

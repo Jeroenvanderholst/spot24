@@ -10,21 +10,21 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 
-class ClassFeature extends Resource
+class ProductClassFeature extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\ClassFeature>
+     * @var class-string<\App\Models\ProductClassFeature>
      */
-    public static $model = \App\Models\ClassFeature::class;
+    public static $model = \App\Models\ProductClassFeature::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'product_class_id';
 
     /**
      * The columns that should be searched.
@@ -33,7 +33,8 @@ class ClassFeature extends Resource
      */
     public static $search = [
         'id',
-        'class_id',
+        'product_class_id',
+        'class-version',
         'feature_id',
         'unit_id',
         'imp_unit_id',
@@ -49,7 +50,7 @@ class ClassFeature extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Class ID', 'class_id')->readonly()->sortable(),
+            Text::make('Product Class ID', 'product_class_id')->readonly()->sortable(),
             Number::make('Sort nr')->readonly()->sortable(),
             Text::make('Feature ID')->readonly(),
             Text::make('Unit ID')->readonly(),

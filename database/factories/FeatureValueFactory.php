@@ -26,11 +26,25 @@ class FeatureValueFactory extends Factory
      */
     public function definition(): array
     {
-        $entities = ModellingClass::pluck('modelling_class_id');
-        $entities = ProductClass::pluck('class_id');
+        unset($mc);
+        unset($ec);
+        $mc = ModellingClass::inRandomOrder()->select('id' , 'code')->first();
+        $ec = ProductClass::inRandomOrder()->select('id' , 'code')->first();
+        $entities = [
+            'ec' => [
+                'id' => $ec->id, 
+                'type' => '\App\Models\ProductClass'
+            ], 
+            'mc' => [
+                'id' => $mc->id, 
+                'type' => '\App\Models\ModellingClass'
+            ]];
+        dd($entities);
+        $entity_id = $entities;
 
         return [
-            'entity_id' => $entities->random(),
+            'entity_id' => $entity_id,
+            'entity_type' => $entity_type,
             'sort_nr' => $this->faker->randomNumber(2, false),
             'feature_id' => Feature::where('type', '=', 'A')->get()->pluck('id')->random(),
             'value_id' => Value::pluck('id')->random(),

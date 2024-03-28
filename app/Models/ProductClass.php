@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+
 
 class ProductClass extends Model
 {
@@ -20,7 +20,7 @@ class ProductClass extends Model
      * @var array
      */
     protected $fillable = [
-        'class_id',
+        'code',
         'status',
         'version',
         'mutation_date',
@@ -44,9 +44,11 @@ class ProductClass extends Model
         'revision_date' => 'date',
     ];
 
-    public function classFeatures(): BelongsToMany
+
+
+    public function productclassfeatures(): BelongsToMany
     {
-        return $this->belongsToMany(Feature::class, ClassFeature::class);
+        return $this->belongsToMany(Feature::class, 'product_class_features');
     }
 
     public function translations(): MorphMany

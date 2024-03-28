@@ -83,7 +83,9 @@ models:
 
     Etim\ClassFeature:
         id: char:8 primary
-        class_id: char:8 index foreign:ProductClass.id
+        featurable_id: BigInteger index # foreign:ProductClass.id as well as ModellingClass.id
+        featurable_type: 
+        version_id: tinyInteger
         sort_nr: smallInteger unsigned
         feature_id: char:8 foreign:Feature.id
         unit_id: char:8 nullable foreign:Unit.id

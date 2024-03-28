@@ -4,7 +4,9 @@ namespace App\Nova;
 
 use App\Nova\Resource;
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Unit extends Resource
@@ -42,6 +44,9 @@ class Unit extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('Description')->sortable()->readonly(),
+            Text::make('Abbreviation')->sortable()->readonly(),
+            Boolean::make('Deprecated')->filterable()->readonly(),
         ];
     }
 

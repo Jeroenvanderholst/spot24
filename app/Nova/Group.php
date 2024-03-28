@@ -59,9 +59,11 @@ class Group extends Resource
             ->hideFromIndex()
             ->readonly(),
 
+            
+            MorphMany::make('Translations'),
+
             HasMany::make('ProductClass'),
 
-            MorphMany::make('Translations'),
             
         ];
     }

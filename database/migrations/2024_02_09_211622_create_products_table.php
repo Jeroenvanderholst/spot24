@@ -30,7 +30,7 @@ return new class extends Migration
             $table->date('product_validity_date')->nullable();
             $table->date('product_obsolescence_date')->nullable();
             $table->string('customs_commodity_code', 10)->nullable();
-            $table->unsignedDecimal('factor_customs_commodity_codedecimal(15,4)', 15, 4)->nullable();
+            $table->decimal('factor_customs_commodity_codedecimal(15,4)', 15, 4)->unsigned()->nullable();
             $table->char('country_of_origin', 2)->nullable();
             $table->timestamps();
         });

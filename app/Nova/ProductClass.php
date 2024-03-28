@@ -2,18 +2,15 @@
 
 namespace App\Nova;
 
-use App\Nova\Repeater\Release;
 use App\Nova\Resource;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Code;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Http\Requests\NovaRequest;
@@ -32,7 +29,7 @@ class ProductClass extends Resource
      *
      * @var string
      */
-    public static $title = 'class_id';
+    public static $title = 'code';
 
     /**
      * The columns that should be searched.
@@ -41,6 +38,8 @@ class ProductClass extends Resource
      */
     public static $search = [
         'id',
+        'code',
+        'description',
     ];
 
     /**
@@ -53,7 +52,7 @@ class ProductClass extends Resource
     {
         return [
             ID::make()->sortable()->hideFromIndex(),
-            Text::make('Class ID', 'class_id')->sortable()->filterable(),
+            Text::make('Code', 'code')->sortable()->filterable(),
             Number::make('Version'),
             Text::make('Description')->sortable(),
             Number::make('Status')->filterable(),
@@ -64,6 +63,7 @@ class ProductClass extends Resource
             HasMany::make('Synonyms'),
             MorphMany::make('Translations'),
             BelongsToMany::make('Release'),
+            MorphToMany::make('ProductClassFeatures'),
         ];
         
     }

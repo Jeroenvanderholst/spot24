@@ -24,13 +24,13 @@ class ModellingClassFeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            'modellingclass_id' => ModellingClass::where('modelling_class_id', 'LIKE', 'MC%')->pluck('modelling_class_id')->random(),
+            'modelling_class_id' => ModellingClass::where('code', 'LIKE', 'MC%')->pluck('id')->random(),
             'sort_nr' => $this->faker->randomNumber(3, false),
             'feature_id' => Feature::pluck('id')->random(),
             'port_code' => $this->faker->randomDigitNotNull(),
             'drawing_code' => $this->faker->text(8),
-            'unit_id' => Unit::pluck('unit_id')->random(),
-            'imp_unit_id' => Unit::pluck('unit_id')->random(),            
+            'unit_id' => Unit::pluck('id')->random(),
+            'imp_unit_id' => Unit::pluck('id')->random(),            
         ];
     }
 }

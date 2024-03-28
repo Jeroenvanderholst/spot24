@@ -2,16 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\ClassFeature;
+use App\Models\ProductClassFeature;
 use Illuminate\Database\Seeder;
 
-class ClassFeatureSeeder extends Seeder
+class ProductClassFeatureSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        ClassFeature::factory()->count(15000)->create();
+        ProductClassFeature::factory()->count(15000)->create();
     }
 }

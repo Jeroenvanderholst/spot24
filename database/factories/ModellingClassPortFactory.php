@@ -23,9 +23,9 @@ class ModellingClassPortFactory extends Factory
     {
         
         return [
-            'modelling_class_id' => ModellingClass::where('modelling_class_id', 'LIKE', 'MC%')->pluck('modelling_class_id')->random(),
+            'modelling_class_id' => ModellingClass::where('code', 'LIKE', 'MC%')->pluck('id')->random(),
             'port_code' => $this->faker->randomDigit(),
-            'connection_type_id' => ModellingClass::where('modelling_class_id', 'LIKE', 'CT%')->pluck('modelling_class_id')->random(),
+            'connection_type_id' => ModellingClass::where('code', 'LIKE', 'CT%')->pluck('id')->random(),
         ];
     }
 }

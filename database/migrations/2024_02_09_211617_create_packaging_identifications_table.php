@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('manufacturer_packaging_number', 35)->nullable();
             $table->json('packaging_gtin_3')->nullable();
             $table->enum('packaging_type_code', ["BE","BG","BJ","BO","BR","BX","C62","CA","CL","CQ","CR","CS","CT","CY","D99","DR","EV","KG","NE","PA","PF","PK","PL","PR","PU","RG","RL","RO","SA","SET","TN","TU","WR","Z2","Z3"]);
-            $table->unsignedDecimal('packaging_quantity', 16, 4)->nullable();
+            $table->decimal('packaging_quantity', 16, 4)->unsigned()->nullable();
             $table->boolean('trade_item_primary_packaging')->nullable();
             $table->string('packaging_gs1_code128', 48)->nullable();
             $table->boolean('packaging_recyclable')->nullable();

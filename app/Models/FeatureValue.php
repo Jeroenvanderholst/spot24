@@ -16,7 +16,8 @@ class FeatureValue extends Model
      * @var array
      */
     protected $fillable = [
-        'class_id',
+        'entity_id',
+        'entity_type',
         'sort_nr',
         'feature_id',
         'value_id',
@@ -38,23 +39,5 @@ class FeatureValue extends Model
         'modelling_class_feature_id' => 'integer',
     ];
 
-    public function classFeature(): BelongsTo
-    {
-        return $this->belongsTo(ClassFeature::class);
-    }
 
-    public function modellingClassFeature(): BelongsTo
-    {
-        return $this->belongsTo(ModellingClassFeature::class);
-    }
-
-    public function feature(): BelongsTo
-    {
-        return $this->belongsTo(Feature::class);
-    }
-
-    public function value(): BelongsTo
-    {
-        return $this->belongsTo(Value::class);
-    }
 }

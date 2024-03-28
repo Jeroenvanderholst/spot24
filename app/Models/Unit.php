@@ -16,6 +16,7 @@ class Unit extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'description',
         'abbreviation',
         'deprecated',

@@ -12,6 +12,7 @@ use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\HasMany;
 use Laravel\Nova\Fields\MorphMany;
+use Laravel\Nova\Fields\MorphToMany;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class ModellingClass extends Resource
@@ -109,6 +110,8 @@ class ModellingClass extends Resource
 
 
             MorphMany::make('Translations'),
+
+            MorphToMany::make('ClassFeatures'),
 
 
             

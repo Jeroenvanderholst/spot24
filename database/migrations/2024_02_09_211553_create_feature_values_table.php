@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('feature_values', function (Blueprint $table) {
             $table->id();
             $table->char('entity_id', 8)->index();
+            $table->string('entity_type', 80);
             $table->unsignedTinyInteger('sort_nr');
             $table->char('feature_id', 8)->index();
             $table->foreign('feature_id')->references('id')->on('features');

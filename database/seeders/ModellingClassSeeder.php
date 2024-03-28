@@ -34,7 +34,7 @@ class ModellingClassSeeder extends Seeder
     {
         ModellingClass::factory()->count(800)->create();
         ModellingClass::create([
-            'modelling_class_id' => 'CT000047',
+            'code' => 'CT000047',
             'version' => 1,
             'status' => '5',
             'mutation_date' => '2024-01-09',
@@ -47,7 +47,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000046',
+            'code' => 'CT000046',
             'version' => 1,
             'status' => '2',
             'mutation_date' => '2024-01-09',
@@ -60,7 +60,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000045',
+            'code' => 'CT000045',
             'version' => 1,
             'status' => '2',
             'mutation_date' => '2024-01-09',
@@ -73,7 +73,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000043',
+            'code' => 'CT000043',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-09',
@@ -86,7 +86,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000042',
+            'code' => 'CT000042',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-09',
@@ -99,7 +99,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000041',
+            'code' => 'CT000041',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-09',
@@ -112,7 +112,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000040',
+            'code' => 'CT000040',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-09',
@@ -126,7 +126,7 @@ class ModellingClassSeeder extends Seeder
             ]);
             
             ModellingClass::create([
-            'modelling_class_id' => 'CT000039',
+            'code' => 'CT000039',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-10',
@@ -140,7 +140,7 @@ class ModellingClassSeeder extends Seeder
             ]);
             
             ModellingClass::create([
-            'modelling_class_id' => 'CT000038',
+            'code' => 'CT000038',
             'version' => 4,
             'status' => '2',
             'mutation_date' => '2024-01-11',
@@ -154,7 +154,7 @@ class ModellingClassSeeder extends Seeder
             ]);
             
             ModellingClass::create([
-            'modelling_class_id' => 'CT000037',
+            'code' => 'CT000037',
             'version' => 4,
             'status' => '2',
             'mutation_date' => '2024-01-12',
@@ -167,7 +167,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000036',
+            'code' => 'CT000036',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-09',
@@ -180,7 +180,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000035',
+            'code' => 'CT000035',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-10',
@@ -193,7 +193,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000034',
+            'code' => 'CT000034',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-01-11',
@@ -206,7 +206,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000033',
+            'code' => 'CT000033',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-01-12',
@@ -219,7 +219,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000032',
+            'code' => 'CT000032',
             'version' => 4,
             'status' => '2',
             'mutation_date' => '2024-01-13',
@@ -232,7 +232,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000031',
+            'code' => 'CT000031',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-14',
@@ -245,7 +245,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000030',
+            'code' => 'CT000030',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-15',
@@ -258,7 +258,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000029',
+            'code' => 'CT000029',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-16',
@@ -271,7 +271,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000028',
+            'code' => 'CT000028',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-17',
@@ -284,7 +284,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000027',
+            'code' => 'CT000027',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-18',
@@ -297,7 +297,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000026',
+            'code' => 'CT000026',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-19',
@@ -310,7 +310,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000025',
+            'code' => 'CT000025',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-20',
@@ -323,7 +323,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000024',
+            'code' => 'CT000024',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-31',
@@ -336,7 +336,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000023',
+            'code' => 'CT000023',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-01-31',
@@ -349,7 +349,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000022',
+            'code' => 'CT000022',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-01-31',
@@ -362,7 +362,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000021',
+            'code' => 'CT000021',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-01-31',
@@ -375,7 +375,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000020',
+            'code' => 'CT000020',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-01-31',
@@ -388,7 +388,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000019',
+            'code' => 'CT000019',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-01-31',
@@ -401,7 +401,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000018',
+            'code' => 'CT000018',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-06',
@@ -414,7 +414,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000017',
+            'code' => 'CT000017',
             'version' => 4,
             'status' => '5',
             'mutation_date' => '2024-02-07',
@@ -427,7 +427,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000016',
+            'code' => 'CT000016',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-08',
@@ -440,7 +440,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000015',
+            'code' => 'CT000015',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-09',
@@ -453,7 +453,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000014',
+            'code' => 'CT000014',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-02-10',
@@ -466,7 +466,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000013',
+            'code' => 'CT000013',
             'version' => 2,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -479,7 +479,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000012',
+            'code' => 'CT000012',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -492,7 +492,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000011',
+            'code' => 'CT000011',
             'version' => 4,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -505,7 +505,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000010',
+            'code' => 'CT000010',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -518,7 +518,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000009',
+            'code' => 'CT000009',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-02-11',
@@ -531,7 +531,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000008',
+            'code' => 'CT000008',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -544,7 +544,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000007',
+            'code' => 'CT000007',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-02-11',
@@ -557,7 +557,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000006',
+            'code' => 'CT000006',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-02-11',
@@ -570,7 +570,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000005',
+            'code' => 'CT000005',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-02-11',
@@ -583,7 +583,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000004',
+            'code' => 'CT000004',
             'version' => 3,
             'status' => '2',
             'mutation_date' => '2024-02-11',
@@ -596,7 +596,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000003',
+            'code' => 'CT000003',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -609,7 +609,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000002',
+            'code' => 'CT000002',
             'version' => 3,
             'status' => '5',
             'mutation_date' => '2024-02-11',
@@ -622,7 +622,7 @@ class ModellingClassSeeder extends Seeder
             'changecode' => fake()->randomElement(["Unchanged","Changed","New","Deleted"])
             ]);
             ModellingClass::create([
-            'modelling_class_id' => 'CT000001',
+            'code' => 'CT000001',
             'version' => 4,
             'status' => '5',
             'mutation_date' => '2024-02-11',

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('product');
             $table->string('manufacturer_product_number', 35);
             $table->enum('declared_unit_unit', ["KGM","LTR","MTK","MTQ","MTR","PCE","TNE","FOT","FTK","FTQ","LBR","LTN","YDK","YRD"]);
-            $table->unsignedDecimal('declared_unit_quantity', 11, 4);
+            $table->decimal('declared_unit_quantity', 11, 4)->unsigned();
             $table->json('functional_unit_description')->nullable();
             $table->unsignedSmallInteger('lca_reference_lifetime');
             $table->enum('third_party_verification', ["none","internally","externally"]);

@@ -22,13 +22,13 @@ class ModellingClassFactory extends Factory
     public function definition(): array
     {
         return [
-            'modelling_class_id' => $this->faker->unique()->regexify('(MC[0-9]{6})'),
+            'code' => $this->faker->unique()->regexify('(MC[0-9]{6})'),
             'version' => $this->faker->randomDigitNotNull(),
             'status' => $this->faker->randomElement(["2","3","5","9"]),
             'mutation_date' => $this->faker->date(),
             'revision' => $this->faker->unique()->randomNumber(4, false),
             'revision_date' => $this->faker->date(),
-            'modelling' => true,
+            'modelling' => $this->faker->boolean(90),
             'description' => $this->faker->text(80),
             'group_id' => ModellingGroup::pluck('id')->random(),
             'drawing_uri' => $this->faker->imageUrl(1754, 1240, 'SVG Reference Drawing', true, 'Modelling Class', true, 'png'),

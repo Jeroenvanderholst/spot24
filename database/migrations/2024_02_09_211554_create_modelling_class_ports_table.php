@@ -15,11 +15,11 @@ return new class extends Migration
 
         Schema::create('modelling_class_ports', function (Blueprint $table) {
             $table->id();
-            $table->char('modelling_class_id', 8)->index();
-            $table->foreign('modelling_class_id')->references('modelling_class_id')->on('modelling_classes');
+            $table->unsignedBigInteger('modelling_class_id')->index();
+            $table->foreign('modelling_class_id')->references('id')->on('modelling_classes');
             $table->unsignedTinyInteger('port_code');
-            $table->char('connection_type_id', 8)->index();
-            $table->foreign('connection_type_id')->references('modelling_class_id')->on('modelling_classes');
+            $table->unsignedBigInteger('connection_type_id')->index();
+            $table->foreign('connection_type_id')->references('id')->on('modelling_classes');
             $table->timestamps();
         });
 

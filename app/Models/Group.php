@@ -33,6 +33,13 @@ class Group extends Model
         'deprecated' => 'boolean',
     ];
 
+    public function updateFromApi()
+    {
+        // get all the groups from the API 
+
+        // update or store them into the database
+    }
+
     public function productClass(): HasMany
     {
         return $this->hasMany(ProductClass::class);

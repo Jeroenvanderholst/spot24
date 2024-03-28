@@ -5,8 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
-class ModellingClassFeature extends Model
+class ProductClassFeature extends Model
 {
     use HasFactory;
 
@@ -16,14 +19,12 @@ class ModellingClassFeature extends Model
      * @var array
      */
     protected $fillable = [
-        'modelling_class_id',
+        'product_class_id',
         'sort_nr',
         'feature_id',
-        'port_code',
-        'drawing_code',
         'unit_id',
         'imp_unit_id',
-
+        'changecode',
     ];
 
     /**
@@ -33,22 +34,6 @@ class ModellingClassFeature extends Model
      */
     protected $casts = [
         'sort_nr' => 'integer',
-        'port_code' => 'integer',
-
     ];
 
-    public function feature(): BelongsTo
-    {
-        return $this->belongsTo(Feature::class);
-    }
-
-    public function modellingClass(): BelongsTo
-    {
-        return $this->belongsTo(ModellingClass::class);
-    }
-
-    public function unit(): BelongsTo
-    {
-        return $this->belongsTo(Unit::class);
-    }
-}
+}   

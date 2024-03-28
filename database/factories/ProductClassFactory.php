@@ -22,7 +22,7 @@ class ProductClassFactory extends Factory
     public function definition(): array
     {
         return [
-            'class_id' => $this->faker->unique()->regexify('EC[0-9]{6}'),
+            'code' => $this->faker->unique()->regexify('EC[0-9]{6}'),
             'status' => $this->faker->randomElement(["2","3","5","9"]),
             'version' => $this->faker->randomDigitNotNull(),
             'mutation_date' => $this->faker->date(),

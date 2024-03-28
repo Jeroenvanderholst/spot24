@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             FeatureSeeder::class,
             ValueSeeder::class,
             UnitSeeder::class,
-            ClassFeatureSeeder::class,
+            ProductClassFeatureSeeder::class,
             ModellingGroupSeeder::class,
             ModellingClassSeeder::class,
             ModellingClassPortSeeder::class,

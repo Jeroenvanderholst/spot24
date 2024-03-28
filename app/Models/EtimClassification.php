@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use App\Jobs\UpdateEtimGroups;
 use App\Models\ModellingClass;
 use App\Models\ProductClass;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Bus;
+use Throwable;
 
 class EtimClassification extends Model
 {
@@ -41,6 +44,18 @@ class EtimClassification extends Model
         'etim_class_version' => 'integer',
         'etim_modelling_class_version' => 'integer',
     ];
+
+    protected function updateApi($release='DYNAMIC') {
+
+        Bus::chain([
+            new UpdateEtimGroups,
+        ])->catch(function (Throwable $e) {
+            // A job within the chain has failed...
+        });
+
+        $this->dispatch(new UpdateEtimGroups());
+
+    }
 
     public function etimFeatures(): HasMany
     {

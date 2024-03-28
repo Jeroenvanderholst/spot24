@@ -49,7 +49,7 @@ class ModellingClassFeature extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Class code', 'modellingclass_id')->readonly()->sortable(),
+            Text::make('Class id', 'modelling_class_id')->readonly()->sortable(),
             Number::make('Sort nr')->readonly()->sortable(),
             Text::make('Feature ID')->readonly(),
             Text::make('Unit ID', 'unit_id')->readonly(),

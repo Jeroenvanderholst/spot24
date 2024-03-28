@@ -1,5 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import EtimStats from '@/Components/EtimStats.vue';
 import { Head } from '@inertiajs/vue3';
 import { Link } from '@inertiajs/vue3';
 </script>
@@ -23,10 +24,23 @@ import { Link } from '@inertiajs/vue3';
             <div class="max-w-xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
-                    <div class="p-6 text-gray-900 text-center"><Link href="/etim/modelupdate">Model Update via API</Link></div>
+                    <!-- <div class="p-6 text-gray-900 text-center"><Link href="/etim/update">Model Update via API</Link></div> -->
 
                 </div>
             </div>                        
         </div>
+
+        <EtimStats class="col-span-3 lg:col-span-1" 
+                :unitCount="EtimStats.unitCount"
+                :valueCount="EtimStats.valueCount"
+                :featureCount="EtimStats.featureCount"
+                :productClassCount="EtimStats.productClassCount"
+                :groupCount="EtimStats.groupCount"
+                :modellingClassCount="EtimStats.modellingClassCount"
+                :translationCount = "EtimStats.translationCount"
+                :synonymCount = "EtimStats.synonymCount"
+                />
+
+
     </AuthenticatedLayout>
 </template>

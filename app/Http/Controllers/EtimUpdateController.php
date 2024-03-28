@@ -7,17 +7,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 
-class ModelUpdateController extends Controller
+class EtimUpdateController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        
-        return Inertia::render('Etim/ModelUpdate/Index', [
+
+
+        return Inertia::render('Etim/Update/Index', [
             'etim_connection' => Session::get('etim_connection')
         ]);
+
+
   
     }
 

@@ -6,8 +6,8 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/vue3';
-
 const showingNavigationDropdown = ref(false);
+
 </script>
 
 <template>
@@ -35,7 +35,7 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('products')" :active="route().current('products')">
                                     Products
                                 </NavLink>
-                                <NavLink :href="route('etim')" :active="route().current('etim')">
+                                <NavLink :href="route('classification.index')" :active="route().current('classification.index')">
                                     ETIM
                                 </NavLink>
                             </div>
@@ -153,6 +153,24 @@ const showingNavigationDropdown = ref(false);
             <main>
                 <slot />
             </main>
+            <!-- Flash messages-->
+            <div>
+                <flash-messages :flash="$page.props.flash"></flash-messages>
+            </div>
         </div>
     </div>
 </template>
+
+<script>
+import FlashMessages from '@/Components/FlashMessages.vue';
+export default {
+  components: {
+    FlashMessages
+  }
+}
+
+
+
+
+</script>
+

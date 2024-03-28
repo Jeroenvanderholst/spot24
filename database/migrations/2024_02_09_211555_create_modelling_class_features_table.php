@@ -15,17 +15,17 @@ return new class extends Migration
 
         Schema::create('modelling_class_features', function (Blueprint $table) {
             $table->id();
-            $table->char('modellingclass_id', 8)->index();
-            $table->foreign('modellingclass_id')->references('modelling_class_id')->on('modelling_classes');
+            $table->unsignedBigInteger('modelling_class_id')->index();
+            $table->foreign('modelling_class_id')->references('id')->on('modelling_classes');
             $table->unsignedSmallInteger('sort_nr');
             $table->char('feature_id', 8)->index();
             $table->foreign('feature_id')->references('id')->on('features');
             $table->unsignedTinyInteger('port_code');
             $table->char('drawing_code', 8);
             $table->char('unit_id', 8)->index()->nullable();
-            $table->foreign('unit_id')->references('unit_id')->on('units');
+            $table->foreign('unit_id')->references('id')->on('units');
             $table->char('imp_unit_id', 8)->index()->nullable();
-            $table->foreign('imp_unit_id')->references('unit_id')->on('units');
+            $table->foreign('imp_unit_id')->references('id')->on('units');
             $table->timestamps();
         });
 

@@ -18,7 +18,7 @@ class ModellingClass extends Model
      * @var array
      */
     protected $fillable = [
-        'modelling_class_id',
+        'code',
         'version',
         'status',
         'mutation_date',

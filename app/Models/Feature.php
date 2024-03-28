@@ -36,17 +36,14 @@ class Feature extends Model
         'deprecated' => 'boolean',
     ];
 
-    public function classFeatures(): HasMany
+    public function productClasses(): BelongsToMany
     {
-        return $this->hasMany(ClassFeature::class);
+        return $this->belongsToMany(ProductClass::class, 'featurable', 'class_features', 'class_type', 'class_id');
     }
 
-    public function featureValues(): BelongsToMany
-    {
-        return $this->belongsToMany(FeatureValue::class);
-    } 
 
-    public function modellingClassFeatures(): HasMany
+
+    public function modellingClasses(): HasMany
     {
         return $this->hasMany(ModellingClassFeature::class);
     }
